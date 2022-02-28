@@ -1,0 +1,115 @@
+// // Grid
+
+// Widths
+.fit-content
+    width: fit-content
+
+.width-100-pc
+    width: 100%
+
+// .w-50pc
+//     width: 50%
+
+// .w-25pc
+//     width: 25%
+
+// .width-fit
+//     width: fit-content
+
+// .maxwidth-xl
+//     max-width: $maxwidth-xl
+
+// .max-1100
+//     max-width: 1100px
+
+// .maxwidth-sl
+//     max-width: $maxwidth-sl
+
+// .maxwidth-lt
+//     max-width: $maxwidth-lt
+
+// .max-895
+//     max-width: 900px
+//     margin: 0 auto
+
+// .max-867
+//     max-width: 867px
+// .max-810 
+//     max-width: 810px
+// .maxwidth-tb
+//     max-width: $maxwidth-tb
+
+// .max-700
+//     max-width: 700px
+// .max-672
+//     max-width: 672px
+// .max-633
+//     max-width: 633px
+
+// .maxwidth-sm
+//     max-width: $maxwidth-sm
+
+.max-527
+    max-width: 527px
+
+// .maxwidth-xs
+//     max-width: $maxwidth-xs
+
+// .max-330
+//     max-width: 330px
+
+// .max-284
+//     max-width: 284px
+
+// .max-240
+//     max-width: 300px
+//     @media #{$mediumup}
+//         max-width: 240.5px
+
+// .max-200
+//     max-width: 200px
+
+// .max-150
+//     max-width: 150px
+
+// .max-70-sl
+//     max-width: 68%
+
+//     @media #{$mediumup}
+//         max-width: $maxwidth-sl
+
+// Heights
+.height-272
+    height: 272px
+
+.h-100p
+    height: 100%
+
+.grid
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
+    grid-gap: 2rem
+
+    &.auto-2
+        grid-template-columns: auto
+
+        @media #{$largeup}
+            grid-template-columns: 49% 49%
+
+    &.mostly-2
+        grid-template-columns: repeat(auto-fit, minmax(314.3px, 1fr))
+
+        @media #{$largeup}
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr))
+
+    &.mostly-3
+        grid-template-columns: auto
+
+        @media #{$smallup}
+            grid-template-columns: repeat(auto-fit, minmax(315.8px, 1fr))
+
+    &.mostly-4
+        grid-template-columns: repeat(auto-fit, minmax(244px, 1fr))
+
+    &.mostly-5
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))

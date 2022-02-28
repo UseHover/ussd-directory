@@ -1,0 +1,80 @@
+// // Sections
+
+.uk-accordion
+    // max-width: 672px
+    margin-top: 5rem
+
+    @media #{$mediumup}
+        margin-top: 10rem
+
+    li
+        margin-top: 0 !important
+
+.uk-accordion-title, .uk-accordion-content
+    padding: 1.6rem 2.7rem
+    border: 1px solid $offwhite
+    border-radius: 8px
+    font-size: $microfont
+    color: $black !important
+    line-height: $lh-32
+    margin: 2px
+    background-color: $white
+    display: block
+
+    &::before
+        // margin-right: 1rem
+        background-image: url("/uploads/chevron-down.svg")
+
+.uk-open > .uk-accordion-title
+    &::before
+        background-image: url("/uploads/chevron-down.svg")
+
+.uk-accordion-content
+    padding-bottom: 1rem
+    font-size: $nanofont
+    color: $gray !important
+
+.subscription
+    background-image: url("/uploads/sub-bg.svg")
+    background-color: $white
+    text-align: center
+    background-repeat: no-repeat
+    background-position: 50% center
+    height: 100%
+    display: flex
+    input
+        max-width: 569px
+
+    &.wrapper
+        @media #{$largeup}
+            padding-top: 6.5rem
+
+.popup
+    border-radius: 24px
+    background-image: url('/uploads/popup-bg.png')
+    background-repeat: no-repeat
+    background-position: top left
+    background-size: 150px 200px
+
+
+.uk-offcanvas-bar
+    background: $white
+
+    a
+        color: $black
+
+    .uk-close
+        color: $black
+
+    .nav
+        display: block
+
+        @media #{$mediumup}
+            display: none
+
+        li
+            margin: 2rem 0
+
+            .btn
+                color: $white
+                width: fit-content
