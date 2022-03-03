@@ -3,58 +3,159 @@ layout: default1
 ---
 <section class="home-banner">
     {% include shell/header.html %}
-    <article class="tx-c wrapper will-grow co-white">
-        <h1 class="co-white mb-2">
-            {{ page.title }}
-        </h1>
-        <p class="max-527 mx-auto lh-31">
-            {{ page.excerpt }}
-        </p>
-        <div class="mt-5">
-            <form class="uk-search uk-search-default">
-                <a href="" uk-search-icon></a>
-                <input class="uk-search-input" type="search" placeholder="Search">
-            </form>
-            <button class="ml-1 btn plain" type="submit">Go</button>
+    <article class="tx-c co-white">
+        <div class="wrapper will-grow">
+            <h1 class="co-white mb-1h ff-bold">
+                {{ page.title }}
+            </h1>
+            <p class="max-527 mx-auto lh-31">
+                {{ page.excerpt }}
+            </p>
+            <section class="max-667 mx-auto">
+                <div class="mt-5  d-flx">
+                    <form class="uk-search uk-search-default">
+                        <a href="" class="uk-search-icon">
+                            <svg width="24" height="24">
+                                <use href="/uploads/icon-sprite.svg#search"></use>
+                            </svg>
+                        </a>
+                        <input id="searchInput" class="uk-search-input" type="search"
+                            placeholder="Search bank, service, mobile money, etc" onkeyup="searchCountry()">
+                    </form>
+                    <button class="ml-1 btn plain" type="submit">Go</button>
+                </div>
+                <ul class="bg-white search-drop" id="countrySearch">
+                    <li class="d-flx co-black border-bottom p-2 pt-0">
+                        <svg class="mr-1" width="25" height="24">
+                            <use href="/uploads/icon-sprite.svg#globe"></use>
+                        </svg>
+                        <p class="co-black">
+                            Every country
+                        </p>
+                    </li>
+                </ul>
+            </section>
         </div>
     </article>
 </section>
-<section class="wrapper">
-    <div class="mb-2">
-        <h1 class="mb-3">
-            Move money <br class="show-largeup"> without
-            <span class="decorated">
-                <span class="flip co-orange">
-                    <span class="mt-1">stress.</span>
-                    <span class="mt-1">internet.</span>
-                    <span class="mt-1">limits.</span>
-                </span>
-            </span>
-        </h1>
-        <p class="microtext lh-31 mb-3">
-            Stax is a simple way to send money, buy airtime, and receive money across Africa. No extra charges. No
-            internet required.
-        </p>
-        <div class="d-flx al-i-c mt-5">
-            <a href="https://stax.onelink.me/nR0j/bae63c64" target="_blank"><img class="google-play mr-2 mb-2"
-                    src="{{site.url}}/uploads/play.png" alt="Google-play"></a>
 
-
-            <a href="https://youtu.be/_oilc1_6SHo" class="co-blue d-flx mb-2 no-wrap" target="_blank">
-                <svg class="mr-1" width="24" height="24">
-                    <use href="/uploads/icon-sprite.svg#play"></use>
+<section class="filter" uk-filter="target: .js-filter">
+    <ul class="uk-subnav uk-subnav-pill">
+        <li uk-filter-control=".tag-all">
+            <a href="#">All</a>
+        </li>
+        <li uk-filter-control=".tag-white">
+            <a href="#">Banking</a>
+        </li>
+        <li uk-filter-control=".tag-blue">
+            <a href="#">Internet</a>
+        </li>
+        <li uk-filter-control=".tag-black">
+            <a href="#">Emergency</a>
+        </li>
+    </ul>
+    <div class="wrapper will-grow">
+        <form class="uk-search uk-search-default max-365">
+            <a href="" class="uk-search-icon">
+                <svg width="24" height="24">
+                    <use href="/uploads/icon-sprite.svg#search"></use>
                 </svg>
-                <p class="ff-medium mr-1 no-wrap">
-                    How it works
-                </p>
             </a>
-        </div>
-    </div>
-    <div class="mb-2 pos-r mt-3 show-largeup">
-        <img class="gsm pos-r" src="/uploads/gsm.png" alt="mobile app view">
+            <input class="uk-search-input bg-white" type="search" placeholder="Search country">
+        </form>
+        <section class="code-head">
+            <p class="ff-bold smalltext flt-l">
+                All Countries
+            </p>
+
+            <ul class="uk-subnav uk-subnav-pill flt-r" uk-switcher>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+            </ul>
+
+            <ul class="js-filter uk-child-width-1-2 uk-child-width-1-3@m uk-text-center uk-switcher uk-margin clearfix-r border-top"
+                uk-grid>
+                <li>
+                    <ul id="ussdList">
+                        <!-- <li class="tag-white max-286 width-100-pc mb-2">
+                            <div class="uk-card card radius-8">
+                                <p class="ff-medium">
+                                    NUUP IN
+                                </p>
+                                <p class="h5 smalltext">
+                                    *99# *99#
+                                </p>
+                                <div class="d-flx co-blue flt-r">
+                                    <span>
+                                        Copy
+                                    </span>
+                                    <svg width="25" height="25">
+                                        <use href="/uploads/icon-sprite.svg#copy"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="tag-white max-286 width-100-pc mb-2">
+                            <div class="uk-card card radius-8">
+                                <p class="ff-medium">
+                                    NUUP IN
+                                </p>
+                                <p class="h5 smalltext">
+                                    *99# *99#
+                                </p>
+                                <div class="d-flx co-blue flt-r">
+                                    <span>
+                                        Copy
+                                    </span>
+                                    <svg width="25" height="25">
+                                        <use href="/uploads/icon-sprite.svg#copy"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </li> -->
+                    </ul>
+                </li>
+
+
+            </ul>
+        </section>
+        <section class="wrapper">
+            <div class="mb-2">
+                <h1 class="mb-3">
+                    Move money <br class="show-largeup"> without
+                    <span class="decorated">
+                        <span class="flip co-orange">
+                            <span class="mt-1">stress.</span>
+                            <span class="mt-1">internet.</span>
+                            <span class="mt-1">limits.</span>
+                        </span>
+                    </span>
+                </h1>
+                <p class="microtext lh-31 mb-3">
+                    Stax is a simple way to send money, buy airtime, and receive money across Africa. No extra charges.
+                    No
+                    internet required.
+                </p>
+                <div class="d-flx al-i-c mt-5">
+                    <a href="https://stax.onelink.me/nR0j/bae63c64" target="_blank"><img class="google-play mr-2 mb-2"
+                            src="{{site.url}}/uploads/play.png" alt="Google-play"></a>
+                    <a href="https://youtu.be/_oilc1_6SHo" class="co-blue d-flx mb-2 no-wrap" target="_blank">
+                        <svg class="mr-1" width="24" height="24">
+                            <use href="/uploads/icon-sprite.svg#play"></use>
+                        </svg>
+                        <p class="ff-medium mr-1 no-wrap">
+                            How it works
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="mb-2 pos-r mt-3 show-largeup">
+                <img class="gsm pos-r" src="/uploads/gsm.png" alt="mobile app view">
+            </div>
+        </section>
     </div>
 </section>
-
 {% include components/subscription.html %}
 {% include components/popup.html %}
 <section class="wrapper will-grow negate-bottom">

@@ -91,37 +91,46 @@ input
 
     &::placeholder
         color: #9D9D9D
+        // font-size: 16px
+        font-weight: 100
+        font-family: $extrafont
+        padding-left: 1.2rem
 
 /* width
-\::-webkit-scrollbar
-    width: 0px
-    height: 0px
-    opacity: 0
+// \::-webkit-scrollbar
+//     width: 0px
+//     height: 0px
+//     opacity: 0
 
-/* Track
-\::-webkit-scrollbar-track
-    box-shadow: none
-    border-radius: 10px
+// /* Track
+// \::-webkit-scrollbar-track
+//     box-shadow: none
+//     border-radius: 10px
 
-/* Handle
-\::-webkit-scrollbar-thumb
-    background: #cccccc
-    border-radius: 10px
+// /* Handle
+// \::-webkit-scrollbar-thumb
+//     background: #cccccc
+//     border-radius: 10px
 
-/* Handle on hover
-\::-webkit-scrollbar-thumb:hover
-    background: #ccc
-    opacity: 0
+// /* Handle on hover
+// \::-webkit-scrollbar-thumb:hover
+//     background: #ccc
+//     opacity: 0
 
 .tab
     scrollbar-width: none
     -ms-overflow-style: none
 
-.clearfix
-    &::before, &::after
-        content: ""
-        display: table
-        clear: both
+// .clearfix
+//     &::before, &::after
+//         content: ""
+//         display: table
+//         clear: both
+.clearfix-r
+    clear: right
+
+.clearfix-l
+    clear: left
 
 .site-main
     padding: 2rem
