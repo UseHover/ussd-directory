@@ -19,6 +19,26 @@
 .underline
     text-decoration: underline
 
+// Headings
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5
+    font-family: $boldfont
+    margin-top: 2rem
+    margin-bottom: 1rem
+    line-height: $lh-64
+    color: $black
+
+h1, .h1
+    font-size: $largefont
+    line-height: $lh-64
+
+h2, .h2
+    font-size: $mediumfont
+    line-height: $lh-48
+
+h3, .h3
+    font-size: $smallfont
+    line-height: $lh-32
+
 // Sizes
 .picotext
     font-size: $picofont
@@ -63,26 +83,6 @@
 .lh-64
     line-height: $lh-64
 
-// Headings
-h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5
-    font-family: $boldfont
-    margin-top: 2rem
-    margin-bottom: 1rem
-    line-height: $lh-64
-    color: $black
-
-h1, .h1
-    font-size: $largefont
-    line-height: $lh-64
-
-h2, .h2
-    font-size: $mediumfont
-    line-height: $lh-48
-
-h3, .h3
-    font-size: $smallfont
-    line-height: $lh-32
-
 .fw-bold
     font-weight: bold
 
@@ -122,3 +122,9 @@ h3, .h3
 
 .no-wrap
     white-space: nowrap
+
+
+.text-underline 
+    display: inline-block
+    line-height: $lh-48
+    border-bottom: 2px solid $darkblue

@@ -1,65 +1,82 @@
 ---
-layout: default1
+layout: default
 ---
-<section class="home-banner">
-    {% include shell/header.html %}
-    <article class="tx-c wrapper will-grow co-white">
-        <h1 class="co-white mb-2">
-            {{ page.title }}
-        </h1>
-        <p class="max-527 mx-auto lh-31">
-            {{ page.excerpt }}
-        </p>
-        <div class="mt-5">
-            <form class="uk-search uk-search-default">
-                <a href="" uk-search-icon></a>
-                <input class="uk-search-input" type="search" placeholder="Search">
-            </form>
-            <button class="ml-1 btn plain" type="submit">Go</button>
-        </div>
-    </article>
-</section>
-<section class="wrapper">
-    <div class="mb-2">
-        <h1 class="mb-3">
-            Move money <br class="show-largeup"> without
-            <span class="decorated">
-                <span class="flip co-orange">
-                    <span class="mt-1">stress.</span>
-                    <span class="mt-1">internet.</span>
-                    <span class="mt-1">limits.</span>
-                </span>
-            </span>
-        </h1>
-        <p class="microtext lh-31 mb-3">
-            Stax is a simple way to send money, buy airtime, and receive money across Africa. No extra charges. No
-            internet required.
-        </p>
-        <div class="d-flx al-i-c mt-5">
-            <a href="https://stax.onelink.me/nR0j/bae63c64" target="_blank"><img class="google-play mr-2 mb-2"
-                    src="{{site.url}}/uploads/play.png" alt="Google-play"></a>
-
-
-            <a href="https://youtu.be/_oilc1_6SHo" class="co-blue d-flx mb-2 no-wrap" target="_blank">
-                <svg class="mr-1" width="24" height="24">
-                    <use href="/uploads/icon-sprite.svg#play"></use>
+<section class="" uk-filter="target: .js-filter">
+    <ul class="uk-subnav filter">
+        <li>
+            <a href="#">All</a>
+        </li>
+        <li>
+            <a href="#">Banking</a>
+        </li>
+        <li>
+            <a href="#">Internet</a>
+        </li>
+        <li>
+            <a href="#">Emergency</a>
+        </li>
+    </ul>
+    <div class="wrapper will-grow">
+        <form class="uk-search uk-search-default max-365">
+            <a href="" class="uk-search-icon">
+                <svg width="24" height="24">
+                    <use href="/uploads/icon-sprite.svg#search"></use>
                 </svg>
-                <p class="ff-medium mr-1 no-wrap">
-                    How it works
-                </p>
             </a>
-        </div>
-    </div>
-    <div class="mb-2 pos-r mt-3 show-largeup">
-        <img class="gsm pos-r" src="/uploads/gsm.png" alt="mobile app view">
+            <input class="uk-search-input bg-white picotext h-48" type="search" placeholder="Search country">
+        </form>
+        <section class="code-head">
+            <div class="space-between-groups flex-wrap">
+                <p class="ff-bold smalltext no-wrap mb-1">
+                    All Countries
+                </p>
+                <div class="switcher d-flx flt-r mb-1 show-mediumup">
+                    <button id="btn1" class="mr-1 active" onclick="gridDisplay()">
+                        <p class="mr-1h">Grid view</p>
+                        <svg width="25" height="24">
+                            <use href="/uploads/icon-sprite.svg#grid-box"></use>
+                        </svg>
+                    </button>
+                    <button id="btn2" class="" onclick="listDisplay()">
+                        <p class="mr-1h">
+                            List view
+                        </p>
+                        <svg width="26" height="24">
+                            <use href="/uploads/icon-sprite.svg#list-box"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <ul class="gridstyle" id="ussdList">
+            </ul>
+            <a href="{{site.url}}/directory" class="ff-semibold co-blue mt-3 microtext d-blk fit-content mx-auto">View
+                more</a>
+        </section>
+
     </div>
 </section>
-
-{% include components/subscription.html %}
-{% include components/popup.html %}
+<section class="wrapper will-grow d-flx gsm-section bg-lightblue">
+    <div class="mb-2 width-100-pc max-474">
+        <h2 class="mb-1h mt-1">
+            Get Stax
+        </h2>
+        <p class="lh-31 mb-2h">
+            Never dial a USSD Code Again. Let Stax do it for you. Stax makes it simpler and easier for you to send
+            money, buy
+            airtime, request money, check your account balance, and do more with your bank and mobile money accounts. It
+            leverages
+            USSD automation technology to give you more control of your money. No need to remember different USSD codes,
+            switch from
+            bank app to fintech app or biller to biller ever again. Best part is - it works offline.
+        </p>
+        <a href="https://stax.onelink.me/nR0j/bae63c64" target="_blank"><img class="google-play mr-2 mb-2"
+                src="{{site.url}}/uploads/play.png" alt="Google-play"></a>
+    </div>
+    <img class="gsm" src="/uploads/gsm.png" alt="mobile app view">
+</section>
 <section class="wrapper will-grow negate-bottom">
-    <h4 class="co-deepblack mb-5">
-        Stax blog
+    <h4 class="co-deepblack mb-5 h2 mt-5">
+        USSD blog
     </h4>
     <ul class="grid mostly-3">
         {% for post in site.blog limit: 3 %}
@@ -79,13 +96,13 @@ layout: default1
     <a class="ff-semibold microtext co-blue mt-5 d-blk tx-r" href="{{site.url}}/blog">View all</a>
 </section>
 <section class="wrapper will-grow">
-    <h1 class="tx-c h3 mb-4">
+    <h3 class="tx-c h1 mb-4">
         Frequently asked questions
-    </h1>
+    </h3>
     <ul class="mx-auto max-672 mt-4" uk-accordion>
-        {% for item in page.faqs limit: 6 %}
+        {% for item in site.faqs limit: 6 %}
         <li class="">
-            <a class="uk-accordion-title ff-bold" href="#">
+            <a class="uk-accordion-title ff-bold" href="">
                 {{ item.name }}
             </a>
             <div class="uk-accordion-content">
@@ -100,3 +117,5 @@ layout: default1
         </li>
     </ul>
 </section>
+<!-- {% include components/popup.html %} -->
+{% include components/prefooter.html %}

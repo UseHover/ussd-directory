@@ -4,7 +4,7 @@
 
 footer
     padding: 6rem 2rem
-    background-color: $darkblue
+    background-color: $black
     color: $white
 
     @media #{$xlargeup}
@@ -12,24 +12,16 @@ footer
 
 .site-footer
     width: 100%
+    max-width: 1000px
     display: flex
     justify-content: space-between
     flex-direction: column
     max-width: 1200px
-    margin: auto
+    // margin: auto
 
     @media #{$xlargeup}
         flex-direction: row
         text-align: left
-
-    &.bottom
-        flex-direction: column-reverse
-
-        @media #{$mediumup}
-            flex-direction: row
-
-            p
-                margin-bottom: -2rem
 
 .footer-list
     display: flex
@@ -58,3 +50,11 @@ footer
 
     @media #{$xlargeup}
         margin: 0
+
+.prefooter
+    display: grid
+    grid-template-columns: auto
+    text-align: center
+    @media #{$largeup}
+        height: 412px
+        grid-template-columns: 50% 50%

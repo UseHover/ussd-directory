@@ -1,4 +1,4 @@
 ---
-name: Is Stax secure?
-summary: Stax uses 2-factor authentication by design for every single transaction. Every time you refresh a balance, send money, or buy airtime, you need your unique SIM card, and your bank or mobile money PIN
+name: What is USSD?
+summary: USSD stands for Unstructured Supplementary Service Data. It is a technology that allows people access banking services using quick codes irrespective of their phones, or internet connection. It is available to people with and without smartphones, people with and without internet connection. The USSD technology is used by the GSM network provider to communicate with the service provider’s platform.
 ---

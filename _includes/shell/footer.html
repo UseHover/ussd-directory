@@ -1,4 +1,4 @@
-<footer>
+<footer class=" wrapper will-grow negate-bottom">
     <section class="site-footer">
         <div class="mb-3">
             <a href="/" class="d-blk mb-1h tx-l">
@@ -6,33 +6,29 @@
                     <use href="/uploads/icon-sprite.svg#logo-white"></use>
                 </svg>
             </a>
-            <p class="max-240 picotext co-offwhite mb-3">
+            <p class="max-213 picotext co-offwhite mb-3">
                 Find USSD codes, their appropriate descriptions and tips.
             </p>
         </div>
-        <div class="foot-grid">
-            {%- for item in site.data.nav.foot-nav -%}
-            <ul class="footer-list mb-3">
-                <li class="ff-bold{% if item.heading == "Connect with us" %} mediumtext no-wrap {% endif %}">
-                    {{ item.heading }}
+        <div class="mb-1">
+            <p class="mb-2h">
+                Connect with us
+            </p>
+            <ul class="d-flx mb-2h">
+                {% for item in site.data.nav.social-links %}
+                <li class="mr-1">
+                    <a href="{{item.link}}" target="_blank">
+                        <svg class="co-offwhite" width="24" height="24">
+                            <use href="/uploads/icon-sprite.svg#{{item.name}}"></use>
+                        </svg>
+                    </a>
                 </li>
-                {%- for names in item.pages -%}
-                {% if names.name %}
-                    <li class="">
-                        <a href="{{ names.link }}" class="">
-                            {{ names.name }}
-                        </a>
-                    </li>
-                {% endif %}
-               
-                {% include components/social-media-links.html %}
-               
-                {%- endfor -%}
-            </ul>
-            {%- endfor -%}
+                {% endfor %}  
+            </ul>  
+                <a class="mb-2h d-blk underline" href="http://stax.me">Visit Stax</a>
         </div>
     </section>
-    <section class="site-footer bottom mt-1">
+    <section class="site-footer">
         <p class="picotext mb-2 tx-c">© 2022, Hover Developer Services, Inc. | All Rights Reserved</p>
     </section>
 </footer>

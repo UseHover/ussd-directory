@@ -80,33 +80,43 @@
                 width: fit-content
 
 .uk-subnav
-    // max-width: 506px
-    margin: 1rem auto
-    border-bottom: 1px solid #E2E2E2
-    padding: 2rem
-    justify-content: center
+    &.filter
+        display: grid
+        grid-template-columns: auto auto
+        grid-gap: 2rem
+        // margin: 1rem auto
+        border-bottom: 1px solid #E2E2E2
+        padding: 2rem
+        justify-content: center
 
-    @media #{$largeup}
-        padding: 5rem 1rem 5.7rem 1rem
+        @media #{$mediumup}
+            margin-left: 0
+            grid-template-columns: auto auto auto auto
 
-    a
-        padding: 1rem 2.4rem !important
-        border: 1px solid $offwhite
-        border-radius: 8px
-        background-color: $white
-        text-transform: capitalize !important
-        font-size: $nanofont !important
-        font-family: $mediafont
-        margin-bottom: 1rem
+        @media #{$largeup}
+            padding: 5rem 1rem 4.7rem 1rem
 
-        .uk-subnav-pill > .uk-active > a, &:active, &:focus, &:hover
-            border: 1px solid $blue
+        a
+            padding: 1rem 2.4rem !important
+            border: 1px solid $offwhite
+            border-radius: 8px
             background-color: $white
-            color: $blue
-            font-family: $semiboldfont
+            text-transform: capitalize !important
+            font-size: $nanofont !important
+            font-family: $mediafont
+            margin-bottom: 1rem
+
+            .uk-subnav-pill > .uk-active > a, &:active, &:focus, &:hover
+                border: 1px solid $blue
+                background-color: $white
+                color: $blue
+                font-family: $semiboldfont
+
+        li
+            padding-left: 0
 
 .code-head
-    padding: 2rem 0
+    padding: 3rem 0
 
     @media #{$mediumup}
         padding: 3rem 0
@@ -116,3 +126,38 @@
 
     @media #{$xlargeup}
         padding: 7.5rem 0 7.2rem 0
+
+    .space-between-groups
+        margin-bottom: 2rem
+
+        @media #{$mediumup}
+            margin-bottom: 6rem
+
+.gsm-section
+    position: relative
+
+    @media #{$largeup}
+        background-image: url("/uploads/bg.png")
+        background-position: 100% 50%
+        background-size: 590px
+        background-repeat: no-repeat
+        right: 0
+        max-height: 532px
+
+.gsm
+    display: none
+    right: 10%
+    max-width: 320px
+    margin-left: 1rem
+
+    @media #{$mediumup}
+        display: block
+        bottom: 0
+
+    @media #{$largeup}
+        position: absolute
+        right: 10.1%
+
+    @media #{$xlargeup}
+        position: absolute
+        right: 15.1%

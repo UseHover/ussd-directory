@@ -1,6 +1,6 @@
 <header class="header space-between-groups mx-auto 
 {% case page.layout %}
-{% when "careers" %} 
+{% when "blog" %} 
 bg-lightblue
 {% else %}""{% endcase %} ">
     <a href="{{ site.url }}" class="logo">
@@ -11,7 +11,7 @@ bg-lightblue
     <ul class="nav space-between-groups show-mediumup">
         {% for item in site.data.nav.main-nav %}
         <li>
-            <a class="ff-medium {% case page.layout %}{% when "blog", "home" %} co-white {% when "careers" %}  {% else %} co-black {% endcase %}" href={{ site.url }}{{ item.link }}>
+            <a class="ff-medium {% case page.layout %}{% when "home" %} co-white {% when "blog" %} co-33 {% else %} co-black {% endcase %}" href={{ site.url }}{{ item.link }}>
                 {{item.name}}
             </a>
         </li>

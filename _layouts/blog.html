@@ -2,17 +2,17 @@
 layout: default
 ---
 
-<section class="bg-lightblue wrapper will-grow tx-c">
-  <h1 class="smalltext ff-medium">{{ page.title }}</h1>
-  <p class="co-black h4 ff-bold max-867 mx-auto">
+<section class="bg-lightblue wrapper wrapper-y will-grow tx-c">
+  <h1 class="smalltext ff-semibold mb-4 mt--2 lh-31">{{ page.title }}</h1>
+  <p class="co-black h2 ff-bold max-867 mx-auto">
     {{ page.name }}
   </p>
 </section>
 <section class="wrapper will-grow negate-bottom">
-  <h4 class="co-blue mb-2">
+  <!-- <h4 class="co-blue mb-2">
     {{ page.category-1 }}
-  </h4>
-  <ul class="grid mostly-3">
+  </h4> -->
+  <ul class="grid mostly-3 wrapper-y will-grow">
     {% for post in site.blog  %}
     {% if post.tag == "Product" %}
     <li class="blog-card">
@@ -30,7 +30,7 @@ layout: default
     {% endfor %}
   </ul>
 </section>
-<section class="wrapper will-grow negate-bottom">
+<!-- <section class="wrapper will-grow negate-bottom">
   <h4 class="co-blue mb-2">
     {{ page.category-2 }}
   </h4>
@@ -95,4 +95,4 @@ layout: default
     {% endif %}
     {% endfor %}
   </ul>
-</section>
+</section> -->

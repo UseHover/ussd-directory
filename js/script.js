@@ -1,6 +1,49 @@
 const root_url = "https://www.usehover.com/";
 let countries = [], country = null, channels = [];
 
+function loadList(all, item)
+{
+	let channel_url;
+	if (all) {
+		channel_url = root_url + "api/channels?bookmarked=true&order_key=name"
+	} else {
+		channel_url = root_url + "api/channels?bookmarked=true&order_key=name" + "&country=" + item.alpha2;
+	}
+
+	fetch(channel_url)
+		.then(response => response.json())
+		.then(data =>
+		{
+			document.getElementById("ussdList").innerHTML = "";
+			data.data.forEach((item, index) =>
+			{
+				if (index <= 15) {
+					const ussdLi = document.createElement("li");
+					ussdLi.className = "";
+					ussdLi.innerHTML = `
+										<p class="ff-semibold mb-1h lh-24">
+											${item.attributes.name}
+										</p>
+										<p class="h5 smalltext lh-32 mt-0 mb-1h">
+											${item.attributes.root_code}
+										</p>
+										<div class="copy no-wrap mb-1h">
+											<span>
+												Copy
+											</span>
+											<svg width="25" height="25">
+												<use href="/uploads/icon-sprite.svg#copy"></use>
+											</svg>
+									</div>
+							`;
+					document.getElementById("ussdList").append(ussdLi)
+				}
+			})
+		})
+}
+
+loadList(true)
+
 function load(url, callback, errorCallback)
 {
 	fetch(url)
@@ -17,62 +60,11 @@ function load(url, callback, errorCallback)
 				li.className = "d-flx al-i-c p-2 pb-0 country";
 				li.innerHTML = `<span class="country">${String.fromCodePoint(...codePoints)}</span><p class="co-black ff-medium nanotext">${item.name}</p>`;
 				document.getElementById("countrySearch").append(li)
-				li.onclick = function ()
-				{
-					const channel_url = root_url + "api/channels?bookmarked=true&order_key=name" + "&country=" + item.alpha2;
-					fetch(channel_url)
-						.then(response => response.json())
-						.then(data =>
-						{
-							data.data.forEach(item =>
-							{
-								const ussdLi = document.createElement("li");
-								ussdLi.className = "dtag-white max-286 width-100-pc mb-2";
-								ussdLi.innerHTML = `
-									<div class="uk-card card radius-8">
-										<p class="ff-medium">
-											${item.attributes.name}
-										</p>
-										<p class="h5 smalltext">
-											${item.attributes.root_code}
-										</p>
-										<div class="d-flx co-blue flt-r">
-											<span>
-												Copy
-											</span>
-											<svg width="25" height="25">
-												<use href="/uploads/icon-sprite.svg#copy"></use>
-											</svg>
-										</div>
-									</div>
-							`;
-								document.getElementById("ussdList").append(ussdLi)
-							})
-						})
-				}
+				li.onclick = loadList(false, item);
 			})
 		});
 	// $.ajax({ type: "GET", url: url, success: callback, errorCallback }); 
 }
-
-{/* <li class="tag-white max-286 width-100-pc mb-2">
-	<div class="uk-card card radius-8">
-		<p class="ff-medium">
-			NUUP IN
-		</p>
-		<p class="h5 smalltext">
-			*99# *99#
-		</p>
-		<div class="d-flx co-blue flt-r">
-			<span>
-				Copy
-			</span>
-			<svg width="25" height="25">
-				<use href="/uploads/icon-sprite.svg#copy"></use>
-			</svg>
-		</div>
-	</div>
-</li> */}
 
 function searchCountry()
 {
@@ -96,6 +88,8 @@ function loadCountries()
 {
 	load(root_url + "api/countries?channels=true", onLoadCountries, countriesError);
 }
+
+loadCountries();
 
 function loadChannels()
 {
@@ -207,5 +201,3 @@ function channelsError()
 {
 	$("#channels-loading").text("Network error, please reload.")
 }
-
-loadCountries();

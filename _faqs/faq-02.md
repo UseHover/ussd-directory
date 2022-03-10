@@ -1,4 +1,4 @@
 ---
-name: Does Stax take my money?
+name: What are the benefits of USSD?
 summary: Stax
 ---

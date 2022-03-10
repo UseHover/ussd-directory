@@ -2,6 +2,20 @@
 
 //
 
+.dot
+    width: 5px
+    height: 5px
+    background-color: $lightgray
+    display: block
+    margin: 1rem
+    border-radius: 100%
+
+    // margin-left: -0.6rem
+
+    // &.is-blue
+    //     background-color: $blue
+    //     border: 3px solid $blue
+
 .sm-icon
     background-color: #D7E8FD
     border-radius: 100%
@@ -42,12 +56,13 @@
     background-image: url("/uploads/main-bg.svg")
     background-repeat: no-repeat
     background-color: #081D39
-    background-size: 114%
+    background-size: 413%
     background-position: center
     height: 100%
 
     @media #{$largeup}
         height: 644px
+        background-size: 113%
 
     article
         display: flex
@@ -67,6 +82,10 @@
     .uk-search-icon
         width: 60px
 
+    &.max-365
+        .uk-search-input
+            padding-left: 5rem !important
+
 .search-drop
     width: 100%
     max-width: 569px
@@ -77,4 +96,69 @@
     margin-top: 1rem
     max-height: 342px
     overflow-y: scroll
-    padding: 3.5rem 0 
+    padding: 3.5rem 0
+    padding-top: 0
+    position: absolute
+    z-index: 1
+    left: 0
+    top: 85px !important
+
+    li
+        &:first-of-type
+            position: sticky
+            top: 0
+            background-color: $white
+
+.gridstyle
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr))
+    grid-gap: 2rem
+
+    li
+        position: relative
+        max-width: 286px
+        width: 100%
+
+        @extend .ussd-card
+
+        .copy
+            position: absolute
+            color: $blue
+            display: flex
+            right: 0
+            bottom: 0
+            margin: 1.6rem 2.1rem
+
+.liststyle
+    li
+        display: grid
+        grid-template-columns: auto auto
+        align-items: center
+        width: 100%
+        border: 1px solid $offwhite
+        border-radius: 8px
+        margin-bottom: 2px
+        padding: 2.4rem
+
+        @media #{$mediumup}
+            height: 86px
+            grid-template-columns: 40% 50% 10%
+
+.content
+    max-width: 895px
+    border-bottom: 1px solid #C5C9DA
+    padding-bottom: 1rem
+
+    p
+        margin-bottom: 2.4rem
+        line-height: $lh-31
+
+    img
+        margin: 3rem 0
+        width: 100%
+
+    h1, h2, h3, h4, h5
+        margin: 3rem 0
+
+    @media #{$mediumup}
+        padding-bottom: 7rem
