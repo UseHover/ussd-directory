@@ -23,7 +23,19 @@
 // document.getElementById("countrySearch").classList.toggle("show");
 // }
 
-// Close the dropdown menu if the user clicks outside of it
+
+
+function copy(value)
+{
+    navigator.clipboard.writeText(value);
+}
+
+copy("jhfhfj")
+
+
+
+
+//  Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event)
 {
     if (!event.target.matches('.dropbtn')) {
@@ -40,26 +52,16 @@ window.onclick = function (event)
 
 function gridDisplay()
 {
-    document.getElementById("ussdList").classList.add("gridstyle");
-    document.getElementById("ussdList").classList.remove("liststyle");
+    document.getElementById("ulList").classList.add("gridstyle");
+    document.getElementById("ulList").classList.remove("liststyle");
     document.getElementById("btn1").classList.add("active");
     document.getElementById("btn2").classList.remove("active");
 }
 
 function listDisplay()
 {
-    document.getElementById("ussdList").classList.add("liststyle");
-    document.getElementById("ussdList").classList.remove("gridstyle");
+    document.getElementById("ulList").classList.add("liststyle");
+    document.getElementById("ulList").classList.remove("gridstyle");
     document.getElementById("btn1").classList.remove("active");
     document.getElementById("btn2").classList.add("active");
 }
-
-function readingTime()
-{
-    const text = document.getElementById("article").innerText;
-    const wpm = 225;
-    const words = text.trim().split(/\s+/).length;
-    const time = Math.ceil(words / wpm);
-    document.getElementById("time").innerText = time;
-}
-readingTime();

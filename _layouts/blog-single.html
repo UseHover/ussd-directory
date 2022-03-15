@@ -35,7 +35,20 @@ layout: default
           <p class="co-black mb-3 ff-semibold">
             Please share this article
           </p>
-          <div class="d-flx al-i-c">
+          <div class="d-flx al-i-c mb-3">
+            <a class="sm-icon"
+              href="https://www.linkedin.com/shareArticle?mini=true&url=http://stax.surge.sh{{ page.url }}&t={{page.title}}"
+              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+              target="_blank" title="Share on Linkedin">
+              <svg width="13" height="13">
+                <use href="/uploads/icon-sprite.svg#linkedin"></use>
+              </svg>
+            </a>
+            <a class="sm-icon" href="https://twitter.com/share?url={{ site.url }}{{ page.url }}&text={{page.title}}"
+              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+              target="_blank" title="Share on Twitter"><svg width="15" height="11">
+                <use href="/uploads/icon-sprite.svg#tweeter"></use>
+              </svg></a>
             <a class="sm-icon" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}&t={{page.title}}"
               onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
               target="_blank" title="Share on Facebook">
@@ -43,50 +56,28 @@ layout: default
                 <use href="/uploads/icon-sprite.svg#fb"></use>
               </svg>
             </a>
-            <a class="sm-icon" href="https://twitter.com/share?url={{ site.url }}{{ page.url }}&text={{page.title}}"
-              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-              target="_blank" title="Share on Twitter"><svg width="15" height="11">
-                <use href="/uploads/icon-sprite.svg#twitter"></use>
-              </svg></a>
-            <a class="sm-icon"
-              href="https://www.linkedin.com/shareArticle?mini=true&url=http://stax.surge.sh{{ page.url }}&t={{page.title}}"
-              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-              target="_blank" title="Share on Linkedin">
-              <svg width="13" height="13">
-                <use href="/uploads/icon-sprite.svg#linkedin"></use>
-              </svg></a>
           </div>
+        </div>
+        <div class="content-card mt-2h">
+          <p class="co-black mb-1h ff-regular">
+            Subscribe to our newsletter
+          </p>
+          <input class="pl-0 norm width-100-pc" type="email" name="" id="" placeholder="eg. kingsley@gmail.com">
+          <a class="btn plain width-100-pc mt-1h h-60">
+            Subscribe
+          </a>
+        </div>
+        <div class="content-card mt-2h">
+          <p class="co-black mb-1h ff-regular">
+            Subscribe to our newsletter
+          </p>
+          <input class="pl-0 norm width-100-pc" type="email" name="" id="" placeholder="eg. kingsley@gmail.com">
+          <a class="btn plain width-100-pc mt-1h h-60">
+            Subscribe
+          </a>
         </div>
       </section>
     </section>
-    
-    <!-- <section>
-      <p class="ff-semibold co-deepblack mt-2">
-        Please share this article
-      </p>
-      <div class="d-flx al-i-c my-2 mb-4">
-        <a class="sm-icon"
-          href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}&t={{page.title}}"
-          onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-          target="_blank" title="Share on Facebook">
-          <svg width="7" height="12">
-            <use href="/uploads/icon-sprite.svg#fb"></use>
-          </svg>
-        </a>
-        <a class="sm-icon" href="https://twitter.com/share?url={{ site.url }}{{ page.url }}&text={{page.title}}"
-          onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-          target="_blank" title="Share on Twitter"><svg width="15" height="11">
-            <use href="/uploads/icon-sprite.svg#twitter"></use>
-          </svg></a>
-        <a class="sm-icon"
-          href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}&t={{page.title}}"
-          onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-          target="_blank" title="Share on Linkedin">
-          <svg width="13" height="13">
-            <use href="/uploads/icon-sprite.svg#linkedin"></use>
-          </svg></a>
-      </div>
-    </section> -->
   </article>
   <section class="pt-5">
     <h4 class="co-deepblack mb-5">
@@ -94,7 +85,7 @@ layout: default
     </h4>
     <ul class="grid mostly-3">
       {% for post in site.blog limit: 3 %}
-      <li class="blog-card">
+      <li class="blog-card mx-auto">
         <a href={{ site.url }}/blog/{{ post.name }}>
           <img class="mb-3" src="{{ site.url }}{{ post.img }}" alt="ussd growth illustration">
           <p class="ff-bold mb-2">
@@ -107,8 +98,19 @@ layout: default
       </li>
       {% endfor %}
     </ul>
-    <!-- <a class="ff-semibold microtext co-blue mt-5 d-blk tx-r" href="{{site.url}}/blog">View all</a> -->
   </section>
 
 </section>
 {% include components/subscription.html %}
+
+<script>
+  function readingTime() {
+    const text = document.getElementById("article").innerText;
+    const wpm = 225;
+    const words = text.trim().split(/\s+/).length;
+    const time = Math.ceil(words / wpm);
+    document.getElementById("time").innerText = time;
+  }
+  readingTime();
+</script>
+

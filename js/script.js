@@ -1,5 +1,41 @@
 const root_url = "https://www.usehover.com/";
-let countries = [], country = null, channels = [];
+let countries = [], country = null, channels = [], countriesData = [];
+
+function UIDesign(data)
+{
+	document.getElementById("ussdList").innerHTML = "";
+
+	const newDiv = document.createElement('ul');
+	newDiv.className = "gridstyle";
+	newDiv.setAttribute("id", "ulList");
+
+	data.forEach((item, index) =>
+	{
+		if (index <= 15) {
+			const ussdLi = document.createElement("li");
+			ussdLi.className = "";
+			ussdLi.innerHTML = `
+										<p class="ff-medium mb-1h lh-24">
+											${item.attributes.name}
+										</p>
+										<a href="tel:${item.attributes.root_code}" id="myInput" class="h5 smalltext lh-32 mt-0 mb-1h">
+											${item.attributes.root_code}
+										</a>
+										<button class="copy no-wrap mb-1h show-mediumup" onclick="copy()">
+											<span class="mr-1">
+												Copy
+											</span>
+											<svg width="25" height="25">
+												<use href="/uploads/icon-sprite.svg#copy"></use>
+											</svg>
+									</button>
+							`;
+			newDiv.append(ussdLi)
+		}
+	})
+
+	document.getElementById("ussdList").append(newDiv)
+}
 
 function loadList(all, item)
 {
@@ -14,31 +50,8 @@ function loadList(all, item)
 		.then(response => response.json())
 		.then(data =>
 		{
-			document.getElementById("ussdList").innerHTML = "";
-			data.data.forEach((item, index) =>
-			{
-				if (index <= 15) {
-					const ussdLi = document.createElement("li");
-					ussdLi.className = "";
-					ussdLi.innerHTML = `
-										<p class="ff-semibold mb-1h lh-24">
-											${item.attributes.name}
-										</p>
-										<p class="h5 smalltext lh-32 mt-0 mb-1h">
-											${item.attributes.root_code}
-										</p>
-										<div class="copy no-wrap mb-1h">
-											<span>
-												Copy
-											</span>
-											<svg width="25" height="25">
-												<use href="/uploads/icon-sprite.svg#copy"></use>
-											</svg>
-									</div>
-							`;
-					document.getElementById("ussdList").append(ussdLi)
-				}
-			})
+			countriesData = data.data;
+			UIDesign(data.data);
 		})
 }
 
@@ -59,11 +72,29 @@ function load(url, callback, errorCallback)
 				const li = document.createElement("li");
 				li.className = "d-flx al-i-c p-2 pb-0 country";
 				li.innerHTML = `<span class="country">${String.fromCodePoint(...codePoints)}</span><p class="co-black ff-medium nanotext">${item.name}</p>`;
-				document.getElementById("countrySearch").append(li)
 				li.onclick = loadList(false, item);
+				document.getElementById("countrySearch").append(li)
 			})
 		});
 	// $.ajax({ type: "GET", url: url, success: callback, errorCallback }); 
+}
+
+function filterCountries(value)
+{
+	const filteredCountries = [];
+	if (value === "all") {
+		UIDesign(countriesData)
+	} else {
+		countriesData.filter(function (item)
+		{
+			// console.log(item.attributes.institution_type);
+			if (item.attributes.institution_type === value) {
+				filteredCountries.push(item)
+			}
+		})
+
+		UIDesign(filteredCountries)
+	}
 }
 
 function searchCountry()

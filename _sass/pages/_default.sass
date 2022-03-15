@@ -10,12 +10,6 @@
     margin: 1rem
     border-radius: 100%
 
-    // margin-left: -0.6rem
-
-    // &.is-blue
-    //     background-color: $blue
-    //     border: 3px solid $blue
-
 .sm-icon
     background-color: #D7E8FD
     border-radius: 100%
@@ -53,16 +47,16 @@
         background-color: $white
 
 .home-banner
-    background-image: url("/uploads/main-bg.svg")
+    background-image: url("/uploads/main-bg.png")
     background-repeat: no-repeat
     background-color: #081D39
-    background-size: 413%
+    background-size: 100%
     background-position: center
     height: 100%
 
     @media #{$largeup}
         height: 644px
-        background-size: 113%
+        // background-size: 113%
 
     article
         display: flex
@@ -115,19 +109,32 @@
     grid-gap: 2rem
 
     li
-        position: relative
-        max-width: 286px
+        display: grid
+        grid-template-columns: auto auto
+        align-items: center
         width: 100%
+        border: 1px solid $offwhite
+        border-radius: 8px
+        margin-bottom: 2px
+        padding: 2.4rem
+        height: 86px
+        @media #{$mediumup}
+            display: block
+            position: relative
+            max-width: 286px
+            box-shadow: 4px 10px 20px rgba(205, 205, 205, 0.16)
+            padding: 1.6rem 2.4rem
+            height: 170px
+            margin: 0 auto 2rem auto
 
-        @extend .ussd-card
-
-        .copy
-            position: absolute
-            color: $blue
-            display: flex
-            right: 0
-            bottom: 0
-            margin: 1.6rem 2.1rem
+            .copy
+                position: absolute
+                color: $blue
+                display: flex
+                align-item: center
+                right: 0
+                bottom: 0
+                margin: 1.6rem 2.1rem
 
 .liststyle
     li
@@ -139,7 +146,6 @@
         border-radius: 8px
         margin-bottom: 2px
         padding: 2.4rem
-
         @media #{$mediumup}
             height: 86px
             grid-template-columns: 40% 50% 10%

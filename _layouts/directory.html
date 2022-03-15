@@ -3,17 +3,17 @@ layout: default
 ---
 <section class="" uk-filter="target: .js-filter">
     <ul class="uk-subnav filter">
-        <li>
-            <a href="#">All</a>
+        <li onclick="filterCountries(`all`)">
+            <p>All</p>
         </li>
-        <li>
-            <a href="#">Banking</a>
+        <li onclick="filterCountries(`bank`)">
+            <p>Banking</p>
         </li>
-        <li>
-            <a href="#">Internet</a>
+        <li onclick="filterCountries(`telecom`)">
+            <p>Telco</p>
         </li>
-        <li>
-            <a href="#">Emergency</a>
+        <li onclick="filterCountries(`mmo`)">
+            <p>Mobile Money</p>
         </li>
     </ul>
     <div class="wrapper will-grow">
@@ -49,73 +49,10 @@ layout: default
             </div>
             <ul class="gridstyle" id="ussdList">
             </ul>
-            <a href="{{site.url}}/directory" class="ff-semibold co-blue mt-3 microtext d-blk fit-content mx-auto">View
-                more</a>
+            <!-- <a href="{{site.url}}/directory" class="ff-semibold co-blue mt-3 microtext d-blk fit-content mx-auto">View
+                more</a> -->
         </section>
 
     </div>
 </section>
-<section class="wrapper will-grow d-flx gsm-section bg-lightblue">
-    <div class="mb-2 width-100-pc max-474">
-        <h2 class="mb-1h mt-1">
-            Get Stax
-        </h2>
-        <p class="lh-31 mb-2h">
-            Never dial a USSD Code Again. Let Stax do it for you. Stax makes it simpler and easier for you to send
-            money, buy
-            airtime, request money, check your account balance, and do more with your bank and mobile money accounts. It
-            leverages
-            USSD automation technology to give you more control of your money. No need to remember different USSD codes,
-            switch from
-            bank app to fintech app or biller to biller ever again. Best part is - it works offline.
-        </p>
-        <a href="https://stax.onelink.me/nR0j/bae63c64" target="_blank"><img class="google-play mr-2 mb-2"
-                src="{{site.url}}/uploads/play.png" alt="Google-play"></a>
-    </div>
-    <img class="gsm" src="/uploads/gsm.png" alt="mobile app view">
-</section>
-<section class="wrapper will-grow negate-bottom">
-    <h4 class="co-deepblack mb-5 h2 mt-5">
-        USSD blog
-    </h4>
-    <ul class="grid mostly-3">
-        {% for post in site.blog limit: 3 %}
-        <li class="blog-card">
-            <a href={{ site.url }}/blog/{{ post.name }}>
-                <img class="mb-3" src="{{ site.url }}{{ post.img }}" alt="ussd growth illustration">
-                <p class="ff-bold mb-2">
-                    {{ post.title }}
-                </p>
-                <sub class="co-blue nanotext ff-semibold">
-                    Read article
-                </sub>
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-    <a class="ff-semibold microtext co-blue mt-5 d-blk tx-r" href="{{site.url}}/blog">View all</a>
-</section>
-<section class="wrapper will-grow">
-    <h3 class="tx-c h1 mb-4">
-        Frequently asked questions
-    </h3>
-    <ul class="mx-auto max-672 mt-4" uk-accordion>
-        {% for item in site.faqs limit: 6 %}
-        <li class="">
-            <a class="uk-accordion-title ff-bold" href="">
-                {{ item.name }}
-            </a>
-            <div class="uk-accordion-content">
-                <p class="mt-1h max-633">
-                    {{ item.summary }}
-                </p>
-            </div>
-        </li>
-        {% endfor %}
-        <li class="tx-c">
-            <a class="ff-semibold microtext co-blue mt-3 d-blk" href="{{site.url}}/faqs">View all</a>
-        </li>
-    </ul>
-</section>
-<!-- {% include components/popup.html %} -->
 {% include components/prefooter.html %}

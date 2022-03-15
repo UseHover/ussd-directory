@@ -5,7 +5,7 @@ layout: default1
     {% include shell/header.html %}
     <article class="tx-c co-white">
         <div class="wrapper will-grow">
-            <h1 class="co-white mb-1h ff-bold">
+            <h1 class="co-white mb-1h">
                 {{ page.title }}
             </h1>
             <p class="max-527 mx-auto lh-31">
@@ -19,9 +19,8 @@ layout: default1
                                 <use href="/uploads/icon-sprite.svg#search"></use>
                             </svg>
                         </a>
-                        <input id="searchInput" class="uk-search-input dropbtn"
-                            placeholder="Search bank, service, mobile money, etc" onkeyup="searchCountry()"
-                            autocomplete="off">
+                        <input id="searchInput" class="uk-search-input dropbtn bg-white" placeholder="Search country"
+                            onkeyup="searchCountry()" autocomplete="off">
                     </form>
                     <button class="ml-1 btn plain" type="submit">Go</button>
                 </div>
@@ -42,17 +41,17 @@ layout: default1
 
 <section class="" uk-filter="target: .js-filter">
     <ul class="uk-subnav filter">
-        <li>
-            <a href="#">All</a>
+        <li onclick="filterCountries(`all`)">
+            <p>All</p>
         </li>
-        <li>
-            <a href="#">Banking</a>
+        <li onclick="filterCountries(`bank`)">
+            <p>Banking</p>
         </li>
-        <li>
-            <a href="#">Internet</a>
+        <li onclick="filterCountries(`telecom`)">
+            <p>Telco</p>
         </li>
-        <li>
-            <a href="#">Emergency</a>
+        <li onclick="filterCountries(`mmo`)">
+            <p>Mobile Money</p>
         </li>
     </ul>
     <div class="wrapper will-grow">
@@ -62,14 +61,15 @@ layout: default1
                     <use href="/uploads/icon-sprite.svg#search"></use>
                 </svg>
             </a>
-            <input class="uk-search-input bg-white picotext h-48" type="search" placeholder="Search country">
+            <input class="uk-search-input bg-white picotext h-48" type="search"
+                placeholder="Search bank, service, mobile money, etc">
         </form>
         <section class="code-head">
             <div class="space-between-groups flex-wrap">
-                <p class="ff-bold smalltext no-wrap mb-1">
+                <p class="ff-bold smalltext no-wrap mb-1 mx-auto ml-0">
                     All Countries
                 </p>
-                <div class="switcher d-flx flt-r mb-1 show-mediumup">
+                <div class="switcher d-flx flt-r show-mediumup">
                     <button id="btn1" class="mr-1 active" onclick="gridDisplay()">
                         <p class="mr-1h">Grid view</p>
                         <svg width="25" height="24">
@@ -86,9 +86,10 @@ layout: default1
                     </button>
                 </div>
             </div>
-            <ul class="gridstyle" id="ussdList">
-            </ul>
-            <a href="{{site.url}}/directory" class="ff-semibold co-blue mt-3 microtext d-blk fit-content mx-auto">View more</a>
+            <div id="ussdList">
+            </div>
+            <a href="{{site.url}}/directory" class="ff-medium co-blue mt-3 microtext d-blk fit-content mx-auto">View
+                more</a>
         </section>
 
     </div>
@@ -113,12 +114,12 @@ layout: default1
     <img class="gsm" src="/uploads/gsm.png" alt="mobile app view">
 </section>
 <section class="wrapper will-grow negate-bottom">
-    <h4 class="co-deepblack mb-5 h2 mt-5">
-    USSD blog
+    <h4 class="co-deepblack mb-5 h2 mt-5h">
+        USSD blog
     </h4>
     <ul class="grid mostly-3">
         {% for post in site.blog limit: 3 %}
-        <li class="blog-card">
+        <li class="blog-card mx-auto">
             <a href={{ site.url }}/blog/{{ post.name }}>
                 <img class="mb-3" src="{{ site.url }}{{ post.img }}" alt="ussd growth illustration">
                 <p class="ff-bold mb-2">
@@ -133,8 +134,8 @@ layout: default1
     </ul>
     <a class="ff-semibold microtext co-blue mt-5 d-blk tx-r" href="{{site.url}}/blog">View all</a>
 </section>
-<section class="wrapper will-grow">
-    <h3 class="tx-c h1 mb-4">
+<section class="wrapper will-grow wrapper-y">
+    <h3 class="tx-c h1 mb-4 mt-0">
         Frequently asked questions
     </h3>
     <ul class="mx-auto max-672 mt-4" uk-accordion>
@@ -151,9 +152,12 @@ layout: default1
         </li>
         {% endfor %}
         <li class="tx-c">
-            <a class="ff-semibold microtext co-blue mt-3 d-blk" href="{{site.url}}/faqs">View all</a>
+            <a class="ff-semibold microtext co-blue mt-4 d-blk" href="{{site.url}}/faqs">See all FAQs</a>
         </li>
     </ul>
 </section>
 <!-- {% include components/popup.html %} -->
 {% include components/prefooter.html %}
+
+
+

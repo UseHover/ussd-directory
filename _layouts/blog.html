@@ -3,19 +3,16 @@ layout: default
 ---
 
 <section class="bg-lightblue wrapper wrapper-y will-grow tx-c">
-  <h1 class="smalltext ff-semibold mb-4 mt--2 lh-31">{{ page.title }}</h1>
+  <h1 class="smalltext ff-semibold mt--2 lh-31">{{ page.title }}</h1>
   <p class="co-black h2 ff-bold max-867 mx-auto">
     {{ page.name }}
   </p>
 </section>
 <section class="wrapper will-grow negate-bottom">
-  <!-- <h4 class="co-blue mb-2">
-    {{ page.category-1 }}
-  </h4> -->
   <ul class="grid mostly-3 wrapper-y will-grow">
     {% for post in site.blog  %}
     {% if post.tag == "Product" %}
-    <li class="blog-card">
+    <li class="blog-card mx-auto">
       <a href={{ site.url }}/blog/{{ post.name }}>
         <img class="mb-3" src="{{ site.url }}{{ post.img }}" alt="ussd growth illustration">
         <p class="ff-bold mb-2">
@@ -30,69 +27,3 @@ layout: default
     {% endfor %}
   </ul>
 </section>
-<!-- <section class="wrapper will-grow negate-bottom">
-  <h4 class="co-blue mb-2">
-    {{ page.category-2 }}
-  </h4>
-  <ul class="grid mostly-3">
-    {% for post in site.blog  %}
-    {% if post.tag == "Finance tips" %}
-    <li class="blog-card">
-      <a href={{ site.url }}/blog/{{ post.name }}>
-        <img class="mb-3" src="{{ site.url }}{{ post.img }}" alt="ussd growth illustration">
-        <p class="ff-bold mb-2">
-          {{ post.title }}
-        </p>
-        <sub class="co-blue nanotext ff-semibold">
-          Read article
-        </sub>
-      </a>
-    </li>
-    {% endif %}
-    {% endfor %}
-  </ul>
-</section>
-<section class="wrapper will-grow negate-bottom">
-  <h4 class="co-blue mb-2">
-    {{ page.category-3 }}
-  </h4>
-  <ul class="grid mostly-3">
-    {% for post in site.blog  %}
-    {% if post.tag == "News" %}
-    <li class="blog-card">
-      <a href={{ site.url }}/blog/{{ post.name }}>
-        <img class="mb-3" src="{{ site.url }}{{ post.img }}" alt="ussd growth illustration">
-        <p class="ff-bold mb-2">
-          {{ post.title }}
-        </p>
-        <sub class="co-blue nanotext ff-semibold">
-          Read article
-        </sub>
-      </a>
-    </li>
-    {% endif %}
-    {% endfor %}
-  </ul>
-</section>
-<section class="wrapper will-grow">
-  <h4 class="co-blue mb-2">
-    {{ page.category-4 }}
-  </h4>
-  <ul class="grid mostly-3 mb-5">
-    {% for post in site.blog %}
-    {% if post.tag == "User stories" %}
-    <li class="blog-card">
-      <a href={{ site.url }}/blog/{{ post.name }}>
-        <img class="mb-3" src="{{ site.url }}{{ post.img }}" alt="ussd growth illustration">
-        <p class="ff-bold mb-2">
-          {{ post.title }}
-        </p>
-        <sub class="co-blue nanotext ff-semibold">
-          Read article
-        </sub>
-      </a>
-    </li>
-    {% endif %}
-    {% endfor %}
-  </ul>
-</section> -->

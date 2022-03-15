@@ -1,43 +1,5 @@
 // // Trumps/Utilities
 
-// Positioning
-
-// .absolute-zero
-//     position: absolute
-//     top: 0
-//     right: 0
-//     bottom: 0
-//     left: 0
-
-// .fixed-zero
-//     position: fixed
-//     top: 0
-//     right: 0
-//     bottom: 0
-//     left: 0
-
-// .absolute-middle
-//     position: absolute
-//     top: 50%
-//     left: 50%
-//     transform: translate(-50%, -50%)
-
-// .absolute-bottom-right
-//     position: absolute
-//     right: 0
-//     bottom: 0
-
-// .absolute-top-right
-//     position: absolute
-//     right: 0
-//     top: 0
-
-// .abs-tr-centre-20
-//     position: absolute
-//     right: 20px
-//     top: 50%
-//     transform: translateY(-50%)
-
 .pos-f
     position: fixed
 
@@ -52,24 +14,6 @@
 .pos-r
     position: relative
 
-// .pos-a-r
-//     position: absolute
-
-//     @media #{$mediumdown}
-//         position: relative
-
-// .top-right-20
-//     top: 30px
-//     right: 30px
-
-// .v-align
-//     vertical-align: middle
-
-// .abs-after-content
-//     content: ""
-//     display: inline-block
-//     position: absolute
-
 // Display
 .d-blk
     display: block
@@ -83,13 +27,6 @@
 .d-grid
     display: grid
 
-// .d-col-row
-//     display: flex
-//     flex-direction: column
-
-//     @media #{$mediumup}
-//         flex-direction: row
-
 .d-col-row-l
     display: flex
     flex-direction: column
@@ -97,53 +34,14 @@
     @media #{$largeup}
         flex-direction: row
 
-// .flx-inverse
-//     flex-direction: row-reverse
-
-// .flex-col
-//     flex-direction: column
-
-// .d-iflx
-//     display: inline-flex
-
-// .flex-1
-//     flex: 1
-
-// .flex-auto
-//     flex: auto
-
 .flex-wrap
     flex-wrap: wrap
-
-// .al-i-fs
-//     align-items: flex-start
-
-// .al-i-fe
-//     align-items: flex-end
 
 .al-i-c
     align-items: center
 
-// .al-s-bl
-//     align-self: baseline
-
 .j-c-sb
     justify-content: space-between
-
-// .j-c-c
-//     justify-content: center
-
-// .j-c-c-s
-//     justify-content: center
-
-//     @media #{$mediumup}
-//         justify-content: start
-
-//         li
-//             margin-left: 0
-
-//     li
-//         margin-left: 1rem
 
 .space-between-groups
     display: flex
@@ -154,57 +52,39 @@
         justify-content: center
 
 // Margins
-.m-0
-    margin: 0
-
-.m-1
+.m-2
     margin: 1rem
 
 .my-0
     margin-top: 0
     margin-bottom: 0
 
-.my-h
-    margin-top: 0.5rem
-    margin-bottom: 0.5rem
-
-.my-1
-    margin-top: 1rem
-    margin-bottom: 1rem
-
-.my-1h
-    margin-top: 1.5rem
-    margin-bottom: 1.5rem
-
-.my-2
-    margin-top: 2rem
-    margin-bottom: 2rem
-
 .my-3
     margin-top: 3rem
     margin-bottom: 3rem
 
 .mt--2
+    margin-top: 0
+    margin-bottom: 1rem
+
     @media #{$mediumup}
         margin-top: -2.5rem
+
+    @media #{$largeup}
+        margin-top: 1rem
+        margin-bottom: 4rem
 
 .mt-0
     margin-top: 0
 
-.mt-h
-    margin-top: 0.5rem
-
 .mt-1
     margin-top: 1rem
 
-.mt-1h
-    margin-top: 1.5rem
-
-.mt-2
-    margin-top: 2rem
-
 .mt-2h
     margin-top: 2.5rem
+
+.mt-1h
+    margin-top: 1.5rem
 
 .mt-3
     margin-top: 3rem
@@ -215,27 +95,19 @@
 .mt-5
     margin-top: 5rem
 
-.mt-7
-    margin-top: 7rem
+.mt-5h
+    margin-top: 5.6rem
 
 .mx-auto
     margin-right: auto
     margin-left: auto
 
-.mx-hh
-    margin-right: 0.25rem
-    margin-left: 0.25rem
+    &.ml-0
+        margin-right: auto
+        margin-left: auto
 
-.mx-1
-    margin-right: 1rem
-    margin-left: 1rem
-
-.mx-2
-    margin-right: 2rem
-    margin-left: 2rem
-
-.mr-h
-    margin-top: 0.5rem
+        @media #{$mediumup}
+            margin-left: 0
 
 .mr-1
     margin-right: 1rem
@@ -248,12 +120,6 @@
 
 .mb-0
     margin-bottom: 0
-
-.mb-hh
-    margin-bottom: 0.25rem
-
-.mb-h
-    margin-bottom: 0.5rem
 
 .mb-1
     margin-bottom: 1rem
@@ -279,66 +145,15 @@
 .mb-6
     margin-bottom: 6rem !important
 
-.ml-0
-    margin-left: 0
-
-.ml-h
-    margin-left: 0.5rem
-
 .ml-1
     margin-left: 1rem
-
-.ml-2
-    margin-left: 2rem
 
 .ml-3
     margin-left: 3rem
 
 // Paddings
-.p-0
-    padding: 0
-
-.p-h
-    padding: 0.5rem
-
-.p-1
-    padding: 1rem
-
-.p-1h
-    padding: 1.5rem
-
 .p-2
     padding: 2rem
-
-.p-3
-    padding: 3rem
-
-.p-4
-    padding: 4rem
-
-.py-0
-    padding-top: 0
-    padding-bottom: 0
-
-.py-hh
-    padding-top: 0.25rem
-    padding-bottom: 0.25rem
-
-.py-h
-    padding-top: 0.5rem
-    padding-bottom: 0.5rem
-
-.py-1
-    padding-top: 1rem
-    padding-bottom: 1rem
-
-.py-1h
-    padding-top: 1.5rem
-    padding-bottom: 1.5rem
-
-.py-2
-    padding-top: 2rem
-    padding-bottom: 2rem
 
 .px-5h
     padding-left: 5.5rem
@@ -347,54 +162,15 @@
 .pt-0
     padding-top: 0
 
-.pt-h
-    padding-top: 0.5rem
-
-.pt-1
-    padding-top: 1rem
-
-.pt-1h
-    padding-top: 1.5rem
-
-.pt-2
-    padding-top: 2rem
-
-.pt-3
-    padding-top: 3rem
-
 .pt-5
     padding-top: 5rem
 
 .pb-0
     padding-bottom: 0
 
-.pb-h
-    padding-bottom: 0.5rem
-
-.pb-1
-    padding-bottom: 1rem
-
-.pb-1h
-    padding-bottom: 1.5rem
-
 .pl-0
     padding-left: 0
-
-.pl-1
-    padding-left: 1rem
-
-.pl-2
-    padding-left: 2rem
-
-.pl-3
-    padding-left: 3rem
-
 // Media Query Utilities
-.show-smallup
-    display: none
-
-    @media #{$smallup}
-        display: flex
 
 .show-mediumup
     display: none
@@ -402,54 +178,14 @@
     @media #{$mediumup}
         display: flex
 
-// .show-inline-mediumup
-//     display: none
-
-//     @media #{$mediumup}
-//         display: inline
-
-.show-largeup
-    display: none
-
-    @media #{$largeup}
-        display: flex
-
-.hide-smalldown
-    @media #{$smalldown}
-        display: none
-
-.hide-smallup
-    display: flex
-
-    @media #{$smallup}
-        display: none
-
 .hide-mediumup
     display: flex
 
     @media #{$mediumup}
         display: none
 
-.hide-largeup
-    display: block
-
-    @media #{$largeup}
-        display: none
-
-// .flx-mediumup
-//     display: flex
-//     flex-direction: column
-//     align-items: center
-
-//     @media #{$smallup}
-//         flex-direction: row
-//         flex-wrap: wrap
-
 .border-bottom
     border-bottom: $borderline
-
-// .border-top
-//     border-top: $borderline
 
 .radius-8
     border-radius: 8px
