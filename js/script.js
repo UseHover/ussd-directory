@@ -94,7 +94,7 @@ if (!id) {
 				ussdLi.className = "list-card";
 				ussdLi.onclick = function ()
 				{
-					location.href = `http://localhost:4000/directory-details?id=${item.id}`;
+					location.href = `https://stage.ussd.directory/directory-details?id=${item.id}`;
 				}
 				ussdLi.innerHTML = `
 				<p class="ff-medium mb-1h lh-24">
