@@ -1,39 +1,8 @@
-// 
-// Handling the menu toggle
-// 
 
-// function launchModalOnLoad()
-// {
-//     setTimeout(() =>
-//     {
-//         UIkit.modal("#modal-example").show();
-//     }, 2000)
-// }
-
-// launchModalOnLoad();
-
-// document.getElementById("myAnchor").addEventListener("click", function (event)
-// {
-//     event.preventDefault()
-// });
-
-
-// function myFunction()
-// {
-// document.getElementById("countrySearch").classList.toggle("show");
-// }
-
-
-
-function copy(value)
+function copy()
 {
-    navigator.clipboard.writeText(value);
+    navigator.clipboard.writeText.item.attributes.path("value");
 }
-
-copy("jhfhfj")
-
-
-
 
 //  Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event)

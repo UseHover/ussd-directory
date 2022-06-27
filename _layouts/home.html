@@ -19,7 +19,7 @@ layout: default1
                                 <use href="/uploads/icon-sprite.svg#search"></use>
                             </svg>
                         </a>
-                        <input id="searchInput" class="uk-search-input dropbtn bg-white" placeholder="Search country"
+                        <input id="searchInput" class="uk-search-input dropbtn bg-white" placeholder="Search country" `
                             onkeyup="searchCountry()" autocomplete="off">
                     </form>
                     <button class="ml-1 btn plain" type="submit">Go</button>
@@ -62,7 +62,7 @@ layout: default1
                 </svg>
             </a>
             <input class="uk-search-input bg-white picotext h-48" type="search"
-                placeholder="Search bank, service, mobile money, etc">
+                placeholder="Search bank, service, mobile money, etc" onkeyup="search()" id="searchFilter">
         </form>
         <section class="code-head">
             <div class="space-between-groups flex-wrap">
@@ -161,3 +161,24 @@ layout: default1
 
 
 
+<script>
+    function load(url, callback, errorCallback) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                countries = data;
+                data.forEach(item => {
+                    const codePoints = item.alpha2.toUpperCase()
+                        .split('')
+                        .map(char => 127397 + char.charCodeAt());
+                    const li = document.createElement("li");
+                    li.className = "d-flx al-i-c p-2 pb-0 country";
+                    li.innerHTML = `<span class="country">${String.fromCodePoint(...codePoints)}</span><p class="co-black ff-medium nanotext">${item.name}</p>`;
+                    li.onclick = loadList(false, item);
+                    document.getElementById("countrySearch").append(li)
+                })
+            });
+        // $.ajax({ type: "GET", url: url, success: callback, errorCallback }); 
+    }
+
+</script>

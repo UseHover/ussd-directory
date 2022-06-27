@@ -1,0 +1,82 @@
+---
+layout: default
+---
+<section class="wrapper will-grow">
+    <a href="/directory" class="d-flx mb-3">
+        <svg width="24" height="24">
+            <use href="/uploads/icon-sprite.svg#left-arrow"></use>
+        </svg>
+        <p class="ml-1 co-blue ff-regular">Back to directory</p>
+    </a>
+    <h1 class="d-flx al-i-c mb-1-2" id="header"></h1>
+    <p class="lh-31 max-935">
+        This page is about the Nigerian branch of Access Bank. For other countries, see:
+        <a class="co-blue underline" href="http://" target="_blank" rel="noopener noreferrer">Access Bank (Ghana),</a>
+        <a class="co-blue underline" href="http://" target="_blank" rel="noopener noreferrer">Access Bank
+            (Kenya),</a>
+        <a class="co-blue underline" href="http://" target="_blank" rel="noopener noreferrer">Access Bank (Rwanda)</a>
+    </p>
+    <article class="grid mostly-2" id="info">
+        <div class="card-details co-darkblue" id="card-details">
+            <!-- <p class="co-gray">
+                Cost: N6.98k
+            </p> -->
+        </div>
+    </article>
+    <article>
+        <p>
+            Disclaimer: The tool is provided for informational purposes only. Whilst every effort is made to provide
+            accurate data,
+            users must acknowledge that this website accepts no liability whatsoever with respect to its accuracy. Only
+            your bank
+            can confirm the correct bank account information. If you are making an important payment, which is
+            time-critical, we
+            recommend contacting your bank first.
+        </p>
+    </article>
+</section>
+{% include components/prefooter.html %}
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id');
+    const root_url = `https://stage.usehover.com/api/channel_actions?channel_id=${id}`;
+    const div = document.getElementById("card-details");
+    const header = document.getElementById("header");
+
+
+
+    fetch(root_url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if(data.data.length > 0) {
+                header.innerHTML = `${data.data[0].attributes.from_institution_name}`;
+                data.data.forEach((item) => {
+                    const list = document.createElement("div");
+                    list.className = "mb-5";
+                    list.innerHTML = `
+                <p class="mb-2-3">
+                    ${item.attributes.name}
+                </p>
+                    <div class="d-flx al-i-c">
+                        <a href="tel:" id="myInput" value class="smalltext ff-bold m-0 mr-2-3">
+                           ${item.attributes.path}
+                        </a>
+                        <button class="d-flx al-i-c co-blue" onclick="copy()" type="button">
+                            <span class="mr-1">
+                                Copy
+                            </span>
+                            <svg width="24" height="24">
+                                <use href="/uploads/icon-sprite.svg#copy"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    
+          
+                `;
+                    div.append(list)
+                });
+            }
+        }) 
+</script>
