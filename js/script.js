@@ -40,7 +40,7 @@ if (!id) {
 						.split('')
 						.map(char => 127397 + char.charCodeAt());
 					const li = document.createElement("li");
-					li.className = "d-flx al-i-c p-2 pb-0 country";
+					li.className = "d-flx al-i-c px-2 py-1 country";
 					li.innerHTML = `<span class="country">${String.fromCodePoint(...codePoints)}</span><p class="co-black ff-medium nanotext">${item.name}</p>`;
 					li.onclick = function ()
 					{
@@ -71,7 +71,7 @@ if (!id) {
 				ussdLi.className = "list-card";
 				ussdLi.onclick = function ()
 				{
-					location.href = `http://localhost:4000/directory-details?id=${item.id}`;
+					location.href = `{{ site.url }}/directory-details?id=${item.id}`;
 				}
 				ussdLi.innerHTML = `
 				<p class="ff-medium mb-1h lh-24">

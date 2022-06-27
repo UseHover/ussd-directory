@@ -161,7 +161,7 @@ layout: default1
 
 
 
-<script>
+<!-- <script>
     function load(url, callback, errorCallback) {
         fetch(url)
             .then(response => response.json())
@@ -172,7 +172,7 @@ layout: default1
                         .split('')
                         .map(char => 127397 + char.charCodeAt());
                     const li = document.createElement("li");
-                    li.className = "d-flx al-i-c p-2 pb-0 country";
+                    li.className = "d-flx al-i-c p-2 py-1 country";
                     li.innerHTML = `<span class="country">${String.fromCodePoint(...codePoints)}</span><p class="co-black ff-medium nanotext">${item.name}</p>`;
                     li.onclick = loadList(false, item);
                     document.getElementById("countrySearch").append(li)
@@ -181,4 +181,4 @@ layout: default1
         // $.ajax({ type: "GET", url: url, success: callback, errorCallback }); 
     }
 
-</script>
+</script> -->
