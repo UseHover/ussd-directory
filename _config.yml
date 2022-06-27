@@ -14,11 +14,11 @@ collections:
   pages:
     title: Pages
     output: true
-    permalink: /:name
+    permalink: /:name/
   blog:
     title: Blog
     output: true
-    permalink: /:collection/:name
+    permalink: /:collection/:name/
   faqs:
     title: Faqs
 
