@@ -66,6 +66,7 @@ if (!id) {
 
 		data.forEach((item, index) =>
 		{
+			// console.log(data)
 			if (pathName == "/directory") {
 				const ussdLi = document.createElement("li");
 				ussdLi.className = "list-card";
@@ -97,9 +98,14 @@ if (!id) {
 					location.href = `https://stage.ussd.directory/directory-details?id=${item.id}`;
 				}
 				ussdLi.innerHTML = `
-				<p class="ff-medium mb-1h lh-24">
+				<div class="space-between-groups mb-1h">
+				<p class="ff-medium lh-24">
 					${item.attributes.name}
 				</p>
+				<p class="co-purple picotext uppercase ff-medium">
+				${item.attributes.country_alpha2}
+				</p>
+				</div>
 				<a href="tel:${item.attributes.root_code}" id="myInput" class="h5 smalltext lh-32 mt-0 mb-1h">
 					${item.attributes.root_code}
 				</a>

@@ -22,7 +22,7 @@ layout: default1
                         <input id="searchInput" class="uk-search-input dropbtn bg-white" placeholder="Search country" `
                             onkeyup="searchCountry()" autocomplete="off">
                     </form>
-                    <button class="ml-1 btn plain" type="submit">Go</button>
+                    <!-- <button class="ml-1 btn plain" type="submit">Go</button> -->
                 </div>
                 <ul class="bg-white search-drop dropdown-content" id="countrySearch" uk-drop="mode: click">
                     <li class="d-flx co-black border-bottom p-2 pt-3">
@@ -159,9 +159,7 @@ layout: default1
 <!-- {% include components/popup.html %} -->
 {% include components/prefooter.html %}
 
-
-
-<!-- <script>
+<script>
     function load(url, callback, errorCallback) {
         fetch(url)
             .then(response => response.json())
@@ -181,4 +179,4 @@ layout: default1
         // $.ajax({ type: "GET", url: url, success: callback, errorCallback }); 
     }
 
-</script> -->
+</script>
