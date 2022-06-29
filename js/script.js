@@ -68,7 +68,6 @@ if (!queryId) {
 
 		data.forEach((item, index) =>
 		{
-			// console.log(data)
 			if (pathName == "/directory") {
 				const ussdLi = document.createElement("li");
 				ussdLi.className = "list-card";
@@ -161,6 +160,11 @@ if (!queryId) {
 					li[i].style.display = "none";
 				}
 			}
+		}
+
+		if (li.length === 0) {
+			loadCountries();
+			loadList(true)
 		}
 	}
 
