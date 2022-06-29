@@ -11,7 +11,7 @@
         {% for item in site.data.nav.main-nav %}
         <li>
             <a class="ff-regular {% case page.layout %}{% when "home" %} co-white {% when "blog" %} co-33 {% else %}
-                co-black {% endcase %}" href={{ site.url }}{{ item.link }}>
+                co-black {% endcase %}" href={{ item.link }}>
                 {{item.name}}
             </a>
         </li>

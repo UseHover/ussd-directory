@@ -12,8 +12,8 @@ layout: default1
                 {{ page.excerpt }}
             </p>
             <section class="max-667 mx-auto pos-r">
-                <div class="mt-5 d-flx">
-                    <form class="uk-search uk-search-default" type="button">
+                <!-- <div class="mt-5 d-flx"> -->
+                    <form class="uk-search uk-search-default mt-5" type="button">
                         <a href="" class="uk-search-icon">
                             <svg width="24" height="24">
                                 <use href="/uploads/icon-sprite.svg#search"></use>
@@ -22,8 +22,10 @@ layout: default1
                         <input id="searchInput" class="uk-search-input dropbtn bg-white" placeholder="Search country" `
                             onkeyup="searchCountry()" autocomplete="off">
                     </form>
+
                     <!-- <button class="ml-1 btn plain" type="submit">Go</button> -->
-                </div>
+                <!-- </div> -->
+                
                 <ul class="bg-white search-drop dropdown-content" id="countrySearch" uk-drop="mode: click">
                     <li class="d-flx co-black border-bottom p-2 pt-3">
                         <svg class="mr-1" width="25" height="24">

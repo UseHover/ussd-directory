@@ -1,8 +1,8 @@
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const id = urlParams.get('id')
+const querystring = window.location.search;
+const urlparams = new URLSearchParams(querystring);
+const queryId = urlparams.get('id')
 
-if (!id) {
+if (!queryId) {
 	// const root_url = "https://www.usehover.com/";
 	const root_url = "https://stage.usehover.com/";
 
@@ -47,6 +47,8 @@ if (!id) {
 						const input = document.getElementById("searchInput");
 						input.value = item.name;
 						loadList(false, item);
+						document.getElementById('countrySearch').remove
+							();
 					}
 					if (document.getElementById("countrySearch")) {
 						document.getElementById("countrySearch").append(li)
@@ -98,7 +100,7 @@ if (!id) {
 					location.href = `https://stage.ussd.directory/directory-details?id=${item.id}`;
 				}
 				ussdLi.innerHTML = `
-				<div class="space-between-groups mb-1h">
+				<div class="space-between-groups listly mb-1h">
 				<p class="ff-medium lh-24">
 					${item.attributes.name}
 				</p>

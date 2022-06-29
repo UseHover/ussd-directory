@@ -4,7 +4,7 @@ main-nav:
 - name: FAQs
   link: /faqs  
 - name: Blog
-  link: /blog
+  link: https://blog.ussd.directory/
 
 social-links:
 - name: medium
