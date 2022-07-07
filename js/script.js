@@ -47,8 +47,7 @@ if (!queryId) {
 						const input = document.getElementById("searchInput");
 						input.value = item.name;
 						loadList(false, item);
-						document.getElementById('countrySearch').remove
-							();
+						document.getElementById('countrySearch').classList.remove("uk-open");
 					}
 					if (document.getElementById("countrySearch")) {
 						document.getElementById("countrySearch").append(li)
@@ -66,9 +65,11 @@ if (!queryId) {
 
 		const pathName = window.location.pathname;
 
+		// console.log(pathName)
+
 		data.forEach((item, index) =>
 		{
-			if (pathName == "/directory") {
+			if (pathName == "/directory/") {
 				const ussdLi = document.createElement("li");
 				ussdLi.className = "list-card";
 				ussdLi.onclick = function ()
@@ -129,7 +130,7 @@ if (!queryId) {
 
 
 	function filterCountries(value)
-	{
+{
 		const filteredCountries = [];
 		if (value === "all") {
 			UIDesign(countriesData)
@@ -147,6 +148,7 @@ if (!queryId) {
 
 	function searchCountry()
 	{
+		document.getElementById('countrySearch').classList.add("uk-open");
 		const input = document.getElementById("searchInput");
 		const filter = input.value.toUpperCase();
 		const li = document.getElementsByClassName("country");
