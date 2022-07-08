@@ -25,6 +25,11 @@ if (!queryId) {
 				countriesData = data.data;
 				UIDesign(data.data);
 			})
+			.then(() =>
+			{
+				// console.log("here")
+				document.getElementById("loader").remove();
+			})
 	}
 
 	function load(url, callback, errorCallback)

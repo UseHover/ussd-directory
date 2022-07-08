@@ -88,9 +88,11 @@ layout: default1
                     </button>
                 </div>
             </div>
-            <section onload="myFunction()">
-                <!-- <div id="loader"></div> -->
-                <div id="ussdList" >
+            <section class="pos-r">
+                <!-- <div class="p-2">
+                    <div id="loader"></div>
+                </div> -->
+                <div id="ussdList">
                 </div>
             </section>
             <a href="{{site.url}}/directory" class="ff-medium co-blue mt-3 microtext d-blk fit-content mx-auto">View
@@ -180,15 +182,5 @@ layout: default1
                     li.onclick = loadList(false, item);
                     document.getElementById("countrySearch").append(li)
                 })
-            });
-        // $.ajax({ type: "GET", url: url, success: callback, errorCallback }); 
-    }
-    var myVar;
-    function myFunction() {
-        myVar = setTimeout(showPage, 3000);
-    }
-    function showPage() {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("myDiv").style.display = "block";
-    }
+            })}
 </script>
