@@ -74,7 +74,8 @@ if (!queryId) {
 				ussdLi.className = "list-card";
 				ussdLi.onclick = function ()
 				{
-					window.location.href = window.location.href + `directory-details?id=${item.id}`;
+					localStorage.setItem("id", item.id);
+					window.location.href = "https://stage.ussd.directory/" + `directory-details`
 				}
 				ussdLi.innerHTML = `
 				<p class="ff-medium mb-1h lh-24">
@@ -97,7 +98,8 @@ if (!queryId) {
 				ussdLi.className = "list-card";
 				ussdLi.onclick = function ()
 				{
-					window.location.href = window.location.href + `directory-details?id=${item.id}`;
+					localStorage.setItem("id", item.id);
+					window.location.href = "https://stage.ussd.directory/" + `directory-details`
 				}
 				ussdLi.innerHTML = `
 				<div class="space-between-groups listly mb-1h">

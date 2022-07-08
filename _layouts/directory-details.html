@@ -39,18 +39,17 @@ layout: default
 <script>
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const id = urlParams.get('id');
+    const id = localStorage.getItem("id");
     const root_url = `https://stage.usehover.com/api/channel_actions?channel_id=${id}`;
     const div = document.getElementById("card-details");
     const header = document.getElementById("header");
-
-
 
     fetch(root_url)
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            if(data.data.length > 0) {
+            if (data.data.length > 0)
+            {
                 header.innerHTML = `${data.data[0].attributes.from_institution_name}`;
                 data.data.forEach((item) => {
                     const list = document.createElement("div");
