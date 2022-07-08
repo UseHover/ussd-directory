@@ -111,7 +111,7 @@ if (!queryId) {
 				<p class="ff-medium lh-24">
 					${item.attributes.name}
 				</p>
-				<p class="co-purple picotext uppercase ff-medium">
+				<p class="co-purple picotext uppercase ff-medium mr-2-0">
 				${item.attributes.country_alpha2}
 				</p>
 				</div>
