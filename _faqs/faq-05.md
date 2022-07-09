@@ -1,4 +1,4 @@
 ---
 name: Can I make money listing a USSD Code here?
-summary: Stax uses 2-factor authentication by design for every single transaction. Every time you refresh a balance, send money, or buy airtime, you need your unique SIM card, and your bank or mobile money PIN
+summary: No. But you can make some $$ if you help us map that USSD code to Stax. <a class="co-blue underline" href="https://stax.onelink.me/nR0j/ussddirectory">Try here</a>.
 ---

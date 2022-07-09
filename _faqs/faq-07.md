@@ -1,4 +1,4 @@
 ---
-name: Does Stax sell my data?
-summary: Stax uses 2-factor authentication by design for every single transaction. Every time you refresh a balance, send money, or buy airtime, you need your unique SIM card, and your bank or mobile money PIN
+name: Is there a way to automate USSD?
+summary: Yes! Stax already did leveraging Hover technology. <a class="co-blue underline" href="https://stax.onelink.me/nR0j/ussddirectory">Check it out.</a>
 ---

@@ -83,9 +83,14 @@ if (!queryId) {
 					window.location.href = "https://stage.ussd.directory/" + `directory-details`
 				}
 				ussdLi.innerHTML = `
-				<p class="ff-medium mb-1h lh-24">
+				<div class="space-between-groups listly mb-1h">
+				<p class="ff-medium lh-24">
 					${item.attributes.name}
 				</p>
+				<p class="co-purple picotext uppercase ff-medium mr-2-0">
+				${item.attributes.country_alpha2}
+				</p>
+				</div>
 				<a href="tel:${item.attributes.root_code}" id="myInput" class="h5 smalltext lh-32 mt-0 mb-1h">
 					${item.attributes.root_code}
 				</a>

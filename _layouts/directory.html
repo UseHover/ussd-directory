@@ -1,7 +1,27 @@
 ---
 layout: default
 ---
-<section class="" uk-filter="target: .js-filter">
+    <section class="uk-search-default mx-auto pos-r">
+        <form class="uk-search uk-search-default mt-5" type="button" id="searchCountryForm">
+            <a href="" class="uk-search-icon">
+                <svg width="24" height="24">
+                    <use href="/uploads/icon-sprite.svg#search"></use>
+                </svg>
+            </a>
+            <input id="searchInput" class="uk-search-input dropbtn bg-white h-80" placeholder="Search country" `
+                onkeyup="searchCountry()" autocomplete="off">
+        </form>
+        <ul class="bg-white search-drop dropdown-content" id="countrySearch" uk-drop="mode: click">
+            <li class="d-flx co-black border-bottom p-2 pt-3">
+                <svg class="mr-1" width="25" height="24">
+                    <use href="/uploads/icon-sprite.svg#globe"></use>
+                </svg>
+                <p class="co-black">
+                    Every country
+                </p>
+            </li>
+        </ul>
+    </section>
     <ul class="uk-subnav filter">
         <li onclick="filterCountries(`all`)">
             <p>All</p>
@@ -48,10 +68,14 @@ layout: default
                     </button>
                 </div>
             </div>
-            <div id="ussdList">
-            </div>
+            <section>
+                <div class="code-container">
+                    <div id="loader"></div>
+                </div>
+                <div id="ussdList">
+                </div>
+            </section>
         </section>
 
     </div>
-</section>
 {% include components/prefooter.html %}
