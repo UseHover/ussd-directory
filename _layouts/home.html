@@ -119,7 +119,7 @@ layout: default1
     <h4 class="co-deepblack mb-5 h2 mt-5h">
         USSD blog
     </h4>
-    <ul class="grid mostly-3">
+    <!-- <ul class="grid mostly-3">
         {% for post in site.blog limit: 3 %}
         <li class="blog-card mx-auto">
             <a href={{ site.url }}/blog/{{ post.name }}>
@@ -133,9 +133,31 @@ layout: default1
             </a>
         </li>
         {% endfor %}
-    </ul>
-    <a class="ff-semibold microtext co-blue mt-5 d-blk tx-r" href="{{site.url}}/blog">View all</a>
+    </ul> -->
+    <!-- <a  href="{{site.url}}/blog">View all</a> -->
+    <div id="recent-blog-posts" class="row overflow-hidden grid mostly-3">
+    
+        <!-- Fetch post from blog -->
+        <template>
+            
+            <div class="col-lg-3 col-md-5 blog-post-thumb-container">
+                <div class="skewed-bg-bottom-left position-relative mid-grey-bg blog-post-thumb">
+                    <a href="" class="stretched-link">
+                    <!--Post Image-->
+                    <img src="" class="featured-img" alt="" />
+                    <h3 class="title"></h3>
+                    <!--Post Title-->
+                    </a>
+                </div>
+            </div>
+           
+        </template>
+    </div>
+    <div class="col-lg-2 col-md-5 home-blog-post-link order-last order-lg-first order-md-6">
+        <a href="https://blog.ussd.directory" class="ff-semibold microtext co-blue mt-5 d-blk tx-r">View all</a>
+    </div>
 </section>
+
 <section class="wrapper will-grow wrapper-y">
     <h3 class="tx-c h1 mb-4 mt-0">
         Frequently asked questions
@@ -159,7 +181,7 @@ layout: default1
     </ul>
 </section>
 {% include components/prefooter.html %}
-
+<script src="https://unpkg.com/@tryghost/content-api@1.5.14/umd/content-api.min.js"></script>
 <script>
     function load(url, callback, errorCallback) {
         fetch(url)
@@ -177,4 +199,32 @@ layout: default1
                     document.getElementById("countrySearch").append(li)
                 })
             })}
+</script>
+<!-- Ghost Api/ Fetch posts -->
+<script>
+    const api = new GhostContentAPI({
+        url: "https://ussd-by-stax.ghost.io",
+            key: "c7c6b72b21e56b6946d97c2b5b",
+        version: "v3",
+    });
+    api.posts
+        .browse({ limit: 3 })
+        .then((posts) => {
+            var temp = document.getElementsByTagName("template")[0]; // reference of template tag in DOM;
+            posts.forEach((post) => {
+                var card = temp.content.cloneNode(true); // copy of template’s content
+                var image = card.querySelector(".featured-img");
+                var title = card.querySelector(".title");
+                var a = card.querySelector(".stretched-link");
+                a.href = post.url;
+                image.alt = post.title;
+                image.src = post.feature_image;
+                title.textContent = post.title;
+                var cardContainer = document.getElementById("recent-blog-posts"); // place on the page where we want to append our template
+                cardContainer.appendChild(card); // append the template’s copy to the page
+            });
+        })
+        .catch((err) => {
+            console.error(err);
+        });
 </script>
