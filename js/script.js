@@ -56,7 +56,7 @@ if (!queryId) {
 						const input = document.getElementById("searchInput");
 						input.value = item.name;
 						localStorage.setItem("alpha", item.alpha2);
-						window.location.href = "http://127.0.0.1:4000/" + `directory-country`
+						window.location.href = "https://stage.ussd.directory/" + `directory-country`
 					}
 					if (document.getElementById("countrySearch")) {
 						document.getElementById("countrySearch").append(li)

@@ -139,7 +139,6 @@ layout: default1
     
         <!-- Fetch post from blog -->
         <template>
-            
             <div class="col-lg-3 col-md-5 blog-post-thumb-container">
                 <div class="skewed-bg-bottom-left position-relative mid-grey-bg blog-post-thumb">
                     <a href="" class="stretched-link">
@@ -147,7 +146,6 @@ layout: default1
                     <img src="" class="featured-img" alt="" />
                     <h3 class="title"></h3>
                 <!-- <time class="featured-date co-blue nanotext ff-semibold" date="yyyy-mm-dd"></time> -->
-                <!-- <input type="date" name="fgh" id="nbv"> -->
                     </a>
                 </div>
             </div>
@@ -217,13 +215,12 @@ layout: default1
                 var image = card.querySelector(".featured-img");
                 var title = card.querySelector(".title");
                 var a = card.querySelector(".stretched-link");
-                var date = card.querySelector(".featured-date");
-                // var dae = new Date(2019, 0, 23);
+                // var date = card.querySelector(".featured-date");
                 a.href = post.url;
                 image.alt = post.title;
                 image.src = post.feature_image;
                 title.textContent = post.title;
-                date.textContent = post.published_at;
+                // date.textContent = post.published_at;
                 var cardContainer = document.getElementById("recent-blog-posts"); // place on the page where we want to append our template
                 cardContainer.appendChild(card); // append the template’s copy to the page
             });
