@@ -10,9 +10,13 @@ if (!queryId) {
 
 	function loadList(all, item)
 	{
+		const pathName = window.location.pathname;
+
 		let channel_url;
-		// console.log(all, item)
-		if (all) {
+		if (pathName === "/directory-country/") {
+			const alpha = localStorage.getItem("alpha");
+			channel_url = root_url + `api/channels?bookmarked=true&order_key=name&country=${alpha}`
+		} else if (all) {
 			channel_url = root_url + "api/channels?bookmarked=true&order_key=name"
 		} else {
 			channel_url = root_url + "api/channels?bookmarked=true&order_key=name" + "&country=" + item.alpha2;
@@ -51,8 +55,8 @@ if (!queryId) {
 					{
 						const input = document.getElementById("searchInput");
 						input.value = item.name;
-						loadList(false, item);
-						document.getElementById('countrySearch').classList.remove("uk-open");
+						localStorage.setItem("alpha", item.alpha2);
+						window.location.href = "http://127.0.0.1:4000/" + `directory-country`
 					}
 					if (document.getElementById("countrySearch")) {
 						document.getElementById("countrySearch").append(li)
@@ -74,7 +78,7 @@ if (!queryId) {
 
 		data.forEach((item, index) =>
 		{
-			if (pathName == "/directory/") {
+			if (pathName === "/directory/") {
 				const ussdLi = document.createElement("li");
 				ussdLi.className = "list-card";
 				ussdLi.onclick = function ()
@@ -247,11 +251,11 @@ if (!queryId) {
 
 	function addCountryToDropdown(country)
 	{
-		var link = document.createElement("a");
+		let link = document.createElement("a");
 		link.className = "dropdown-item " + country.alpha2;
 		link.href = "/ussd-codes/" + country.alpha2;
 		link.innerHTML = getCountryFlag(country) + " " + country.name;
-		var li = document.createElement("li");
+		let li = document.createElement("li");
 		li.append(link);
 		$("#dropdown-country-list").append(li.cloneNode(true));
 		$("#header-dropdown-country-list").append(li);
