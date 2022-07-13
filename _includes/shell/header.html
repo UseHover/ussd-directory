@@ -3,14 +3,14 @@
 {% when "blog", "faq" %} bg-lightblue {% else %}""{% endcase %} ">
     <a href="/" class="logo">
     <svg width="91" height="44">
-        <use href="/uploads/icon-sprite.svg#{% case page.layout %}{% when "home" %}logo-white{% else
+        <use href="/uploads/icon-sprite.svg#{% case page.layout %}{% when "home", "country-directory" %}logo-white{% else
             %}logo-coloured{% endcase %}"></use>
     </svg>
     </a>
     <ul class="nav space-between-groups show-mediumup">
         {% for item in site.data.nav.main-nav %}
         <li>
-            <a class="ff-regular {% case page.layout %}{% when "home" %} co-white {% when "blog" %} co-33 {% else %}
+            <a class="ff-regular {% case page.layout %}{% when "home", "country-directory" %} co-white {% when "blog" %} co-33 {% else %}
                 co-black {% endcase %}" href={{ item.link }}>
                 {{item.name}}
             </a>
