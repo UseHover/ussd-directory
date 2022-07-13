@@ -60,7 +60,7 @@ if (!queryId) {
 						input.value = item.name;
 						localStorage.setItem("alpha", item.alpha2);
 						localStorage.setItem("countryName", item.name);
-						window.location.href = "http://127.0.0.1:4000/" + `directory-country?alpha=${item.alpha2}`
+						window.location.href = "https://stage.ussd.directory/" + `directory-country?alpha=${item.alpha2}`
 					}
 					if (document.getElementById("countrySearch")) {
 						document.getElementById("countrySearch").append(li)
