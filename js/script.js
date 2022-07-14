@@ -60,7 +60,7 @@ if (!queryId) {
 						input.value = item.name;
 						localStorage.setItem("alpha", item.alpha2);
 						localStorage.setItem("countryName", item.name);
-						window.location.href = "https://stage.ussd.directory/" + `directory-country/?alpha=${item.name}/`
+						window.location.href = "https://stage.ussd.directory/" + `directory-country/?alpha=${item.name}`
 					}
 					if (document.getElementById("countrySearch")) {
 						document.getElementById("countrySearch").append(li)
@@ -88,7 +88,7 @@ if (!queryId) {
 				ussdLi.onclick = function ()
 				{
 					localStorage.setItem("id", item.id);
-					window.location.href = "https://stage.ussd.directory/" + `directory-details/?name=${item.attributes.name}/`
+					window.location.href = "https://stage.ussd.directory/" + `directory-details/?name=${item.attributes.name}`
 				}
 				ussdLi.innerHTML = `
 				<div class="space-between-groups listly mb-1h">
@@ -117,7 +117,7 @@ if (!queryId) {
 				ussdLi.onclick = function ()
 				{
 					localStorage.setItem("id", item.id);
-					window.location.href = "https://stage.ussd.directory/" + `directory-details/?name=${item.attributes.name}/`
+					window.location.href = "https://stage.ussd.directory/" + `directory-details/?name=${item.attributes.name}`
 				}
 				ussdLi.innerHTML = `
 				<div class="space-between-groups listly mb-1h">
