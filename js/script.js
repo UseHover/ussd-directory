@@ -60,7 +60,7 @@ if (!queryId) {
 						input.value = item.name;
 						localStorage.setItem("alpha", item.alpha2);
 						localStorage.setItem("countryName", item.name);
-						window.location.href = "https://stage.ussd.directory/" + `directory-country?alpha=${item.alpha2}`
+						window.location.href = "https://stage.ussd.directory/" + `directory-country?alpha=${item.name}`
 					}
 					if (document.getElementById("countrySearch")) {
 						document.getElementById("countrySearch").append(li)
@@ -88,7 +88,7 @@ if (!queryId) {
 				ussdLi.onclick = function ()
 				{
 					localStorage.setItem("id", item.id);
-					window.location.href = "https://stage.ussd.directory/" + `directory-details`
+					window.location.href = "https://stage.ussd.directory/" + `directory-details?name=${item.attributes.name}`
 				}
 				ussdLi.innerHTML = `
 				<div class="space-between-groups listly mb-1h">
@@ -101,7 +101,7 @@ if (!queryId) {
 				</div>
 				<a href="tel:${item.attributes.root_code}" id="myInput" class="h5 smalltext lh-32 mt-0 mb-1h">
 					${item.attributes.root_code}
-				</a>
+  			</a>
 				<button class="copy no-wrap mb-1h show-mediumup" onclick="copy()">
 					<span class="mr-1">
 						Copy
