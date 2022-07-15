@@ -1,8 +1,16 @@
 
-function copy()
+function copy(value)
 {
-    navigator.clipboard.writeText.item.attributes.path("value");
+    console.log(value);
+    navigator.clipboard.writeText(value);
 }
+
+// function copy()
+// {
+//     let copyValue = document.getElementById("#copied");
+//     console.log(copyValue);
+//     navigator.clipboard.writeText(copyValue.value);
+// }
 
 //  Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event)

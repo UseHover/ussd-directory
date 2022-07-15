@@ -46,6 +46,7 @@ layout: default
                 header.innerHTML = `${data.data[0].attributes.from_institution_name}`;
                 data.data.forEach((item) => {
                     const list = document.createElement("div");
+                    const path = item.attributes.path;
                     list.className = "mb-5";
                     list.innerHTML = `
                 <p class="mb-2-3">
@@ -55,7 +56,7 @@ layout: default
                         <a href="tel:" id="myInput" value class="smalltext ff-bold m-0 mr-2-3">
                            ${item.attributes.path}
                         </a>
-                        <button class="d-flx al-i-c co-blue" onclick="copy()" type="button">
+                        <button class="d-flx al-i-c co-blue" onClick="copy(${path.value})" type="button">
                             <span class="mr-1">
                                 Copy
                             </span>
