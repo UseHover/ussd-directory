@@ -40,6 +40,21 @@ jobs:
       - run:
           name: Create AWS Cloudfront Invalidation
           command: ~/.local/bin/aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_STAGE_DISTRIBUTION_ID --paths "/*"
+  deploy-production:
+    docker:
+      - image: cimg/python:3.9.1
+    steps:
+      - attach_workspace:
+          at: ./
+      - run:
+          name: Install AWS CLI
+          command: pip install awscli --upgrade --user
+      - run:
+          name: Upload to s3
+          command: ~/.local/bin/aws s3 sync ./_site s3://$AWS_S3_PROD_BUCKET_NAME/ --delete --acl public-read --delete --cache-control max-age=604800
+      - run:
+          name: Create AWS Cloudfront Invalidation
+          command: ~/.local/bin/aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID --paths "/*"
 workflows:
   test-deploy:
     jobs:
@@ -50,3 +65,12 @@ workflows:
           filters:
             branches:
               only: staging
+  test-deploy-prod:
+    jobs:
+      - build
+      - deploy-staging:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
