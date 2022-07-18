@@ -68,7 +68,7 @@ workflows:
   test-deploy-prod:
     jobs:
       - build
-      - deploy-staging:
+      - deploy-production:
           requires:
             - build
           filters:
