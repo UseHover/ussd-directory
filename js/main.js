@@ -1,9 +1,9 @@
 
-function copy(value)
-{
-    console.log(value);
-    navigator.clipboard.writeText(value);
-}
+// function copy(value)
+// {
+//     console.log(value);
+//     navigator.clipboard.writeText(value);
+// }
 
 // function copy()
 // {
