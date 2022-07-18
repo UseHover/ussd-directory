@@ -1,0 +1,92 @@
+// // Wrappers for all Layouts
+
+.wrapper
+    padding: 2rem
+
+    &.will-grow
+        @media #{$mediumup}
+            padding: 2rem 6rem
+
+        @media #{$largeup}
+            padding: 3rem 9rem
+
+        @media #{$xlargeup}
+            padding: 6rem 12rem
+
+    &.half-way
+        @media #{$mediumup}
+            padding: 1.5rem 3rem
+
+        @media #{$largeup}
+            padding: 3rem 4.5rem
+
+        @media #{$xlargeup}
+            padding: 4rem 7rem
+
+    &.negate-bottom
+        padding-bottom: 0 !important
+
+    &.negate-top
+        padding-top: 5rem !important
+
+    &.negate-top-slaptopup
+        @media #{$slaptop}
+            padding-top: 0 !important
+
+    &.negate-top-largeup
+        @media #{$largeup}
+            padding-top: 0 !important
+
+    &.negate-bottom-smallup
+        @media #{$smallup}
+            padding-bottom: 0 !important
+
+.wrapper-y
+    padding-top: 2rem
+    padding-bottom: 2rem
+
+    &.will-grow
+        @media #{$mediumup}
+            padding-top: 6rem
+            padding-bottom: 6rem
+
+        @media #{$largeup}
+            padding-top: 9rem
+            padding-bottom: 9rem
+
+        @media #{$xlargeup}
+            padding-top: 12rem
+            padding-bottom: 12rem
+
+    &.half-way
+        @media #{$mediumup}
+            padding-top: 3.5rem
+            padding-bottom: 3.5rem
+
+        @media #{$largeup}
+            padding-top: 5rem
+            padding-bottom: 5rem
+
+        @media #{$xlargeup}
+            padding-top: 7rem
+            padding-bottom: 7rem
+
+    &.half-way-bottom
+        @media #{$mediumup}
+            padding-bottom: 3.5rem
+
+        @media #{$largeup}
+            padding-bottom: 5rem
+
+        @media #{$xlargeup}
+            padding-bottom: 7rem
+
+    &.negate-top
+        padding-top: 0 !important
+
+    &.negate-bottom
+        padding-bottom: 0 !important
+
+.wrapper-x
+    padding-right: 1rem
+    padding-left: 1rem

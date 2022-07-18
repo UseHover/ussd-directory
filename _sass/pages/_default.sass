@@ -1,0 +1,228 @@
+// // Home Page
+
+//
+
+.dot
+    width: 5px
+    height: 5px
+    background-color: $lightgray
+    display: block
+    margin: 1rem
+    border-radius: 100%
+
+.sm-icon
+    background-color: #D7E8FD
+    border-radius: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 33px
+    height: 33px
+    margin-left: 2.4rem
+
+    &:first-of-type
+        margin-left: 0
+
+    &.initials
+        width: 42px
+        height: 42px
+        color: $blue
+        margin-left: 0
+
+.tag
+    padding: 0.4rem 1rem
+    background-color: #D7E8FD
+    white-space: nowrap
+    border-radius: 50px
+    color: $blue
+    font-family: $mediafont
+    line-height: $lh-24
+
+.uk-search-input
+    background-color: $white
+    border-radius: 8px
+    width: 100%
+
+    &:active, &:focus, &:hover
+        background-color: $white
+
+.home-banner
+    background-image: url("/uploads/main-bg.png")
+    background-repeat: no-repeat
+    background-color: #002E48
+    background-size: 100%
+    background-position: center
+    height: 100%
+
+    @media #{$largeup}
+        height: 644px
+        // background-size: 113%
+
+    article
+        display: flex
+        justify-content: center
+
+    .uk-search-input
+        max-width: 569px
+        height: 80px
+
+        &:active, &:focus, &:hover
+            background-color: $white
+
+.uk-search-default
+    width: 100%
+    max-width: 569px
+
+    .uk-search-icon
+        width: 60px
+
+    &.max-365
+        .uk-search-input
+            padding-left: 5rem !important
+
+.search-drop
+    width: 100%
+    max-width: 569px
+    background-color: $white
+    border-radius: 8px
+    box-shadow: 4px 10px 20px rgba(170, 170, 170, 0.16)
+    border: $borderline
+    margin-top: 6rem
+    max-height: 342px
+    overflow-y: scroll
+    padding: 3.5rem 0
+    padding-top: 0
+    position: absolute
+    z-index: 1
+    left: 0
+    top: 85px !important
+
+    li
+        &:first-of-type
+            position: sticky
+            top: 0
+            background-color: $white
+
+.gridstyle
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr))
+    grid-gap: 2rem
+
+    li
+        display: grid
+        grid-template-columns: auto auto
+        align-items: center
+        width: 100%
+        border: 1px solid $offwhite
+        border-radius: 8px
+        margin-bottom: 2px
+        padding: 2.4rem
+        height: 86px
+        cursor: pointer
+
+        @media #{$mediumup}
+            display: block
+            position: relative
+            max-width: 286px
+            box-shadow: 4px 10px 20px rgba(205, 205, 205, 0.16)
+            padding: 1.6rem 2.4rem
+            height: 170px
+            margin: 0 auto 2rem auto
+
+            .copy
+                position: absolute
+                color: $blue
+                display: flex
+                align-item: center
+                right: 0
+                bottom: 0
+                margin: 1.6rem 2.1rem
+
+.liststyle
+    li
+        display: grid
+        grid-template-columns: auto auto
+        align-items: center
+        width: 100%
+        border: 1px solid $offwhite
+        border-radius: 8px
+        margin-bottom: 2px
+        padding: 2.4rem
+        cursor: pointer
+
+        @media #{$mediumup}
+            height: 86px
+            grid-template-columns: 40% 50% 10%
+
+        .listly
+            justify-content: normal
+            margin-bottom: 1.5rem
+
+            .picotext
+                margin-left: 2.8rem
+
+            .mr-2-0
+                margin-right: 2rem
+
+.content
+    max-width: 895px
+    border-bottom: 1px solid #C5C9DA
+    padding-bottom: 1rem
+
+    p
+        margin-bottom: 2.4rem
+        line-height: $lh-31
+
+    img
+        margin: 3rem 0
+        width: 100%
+
+    h1, h2, h3, h4, h5
+        margin: 3rem 0
+
+    @media #{$mediumup}
+        padding-bottom: 7rem
+
+#loader
+    left: 50%
+    top: 50%
+    z-index: 1
+    width: 80px
+    height: 80px
+    margin: (-76px) 0 0 -76px
+    border: 10px solid $lightblue
+    border-radius: 50%
+    border-top: 10px solid $darkblue
+    -webkit-animation: spin 2s linear infinite
+    animation: spin 2s linear infinite
+
+@-webkit-keyframes spin
+    0%
+        -webkit-transform: rotate(0deg)
+
+    100%
+        -webkit-transform: rotate(360deg)
+
+@keyframes spin
+    0%
+        transform: rotate(0deg)
+
+    100%
+        transform: rotate(360deg)
+
+/* Add animation to "page content"
+.animate-bottom
+    position: relative
+    -webkit-animation-name: animatebottom
+    -webkit-animation-duration: 1s
+    animation-name: animatebottom
+    animation-duration: 1s
+
+@-webkit-keyframes animatebottom
+    from
+        bottom: 100px
+        opacity: 0
+
+    to
+        bottom: 0
+        opacity: 1

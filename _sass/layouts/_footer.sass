@@ -1,0 +1,58 @@
+// // Global Footer
+//
+// // @package sfc
+
+footer
+    padding: 6rem 2rem
+    background-color: $black
+    color: $white
+
+    @media #{$xlargeup}
+        padding: 5rem 6rem 4rem 6rem
+
+.site-footer
+    width: 100%
+    max-width: 1000px
+    display: flex
+    justify-content: space-between
+    flex-direction: column
+
+    @media #{$xlargeup}
+        flex-direction: row
+        text-align: left
+
+.footer-list
+    display: flex
+    flex-direction: column
+
+    li
+        margin-bottom: 1.5rem
+
+.foot-grid
+    width: 100%
+    max-width: 794px
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))
+    margin: auto
+
+    @media #{$largeup}
+        flex-direction: row
+
+    @media #{$xlargeup}
+        margin: 0
+        margin-bottom: 10rem
+        grid-template-columns: auto auto 285px
+
+.play-icon
+    margin: auto
+
+    @media #{$xlargeup}
+        margin: 0
+
+.prefooter
+    display: grid
+    grid-template-columns: auto
+    text-align: center
+    @media #{$largeup}
+        height: 412px
+        grid-template-columns: 50% 50%

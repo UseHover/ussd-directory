@@ -1,0 +1,34 @@
+<footer class=" wrapper will-grow negate-bottom">
+    <section class="site-footer">
+        <div class="mb-3">
+            <a href="/" class="d-blk mb-1h tx-l">
+                <svg width="92" height="44">
+                    <use href="/uploads/icon-sprite.svg#logo-white"></use>
+                </svg>
+            </a>
+            <p class="max-213 picotext co-offwhite mb-3 lh-16">
+                Find USSD codes, their appropriate descriptions and tips.
+            </p>
+        </div>
+        <div class="mb-1">
+            <p class="mb-2h h2 co-white mt-0">
+                Connect with us
+            </p>
+            <ul class="d-flx j-c-sb mb-2h max-261">
+                {% for item in site.data.nav.social-links %}
+                <li class="">
+                    <a href="{{item.link}}" target="_blank">
+                        <svg class="co-offwhite" width="24" height="24">
+                            <use href="/uploads/icon-sprite.svg#{{item.name}}"></use>
+                        </svg>
+                    </a>
+                </li>
+                {% endfor %}  
+            </ul>  
+                <a class="mb-2h d-blk underline" href="http://stax.me">Visit Stax</a>
+        </div>
+    </section>
+    <section class="site-footer">
+        <p class="picotext mb-2h tx-c">© 2022, Hover Developer Services, Inc. | All Rights Reserved</p>
+    </section>
+</footer>

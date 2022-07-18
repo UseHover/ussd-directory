@@ -1,0 +1,50 @@
+<header class="header space-between-groups mx-auto 
+{% case page.layout %}
+{% when "blog", "faq" %} bg-lightblue {% else %}""{% endcase %} ">
+    <a href="/" class="logo">
+    <svg width="91" height="44">
+        <use href="/uploads/icon-sprite.svg#{% case page.layout %}{% when "home", "country-directory" %}logo-white{% else
+            %}logo-coloured{% endcase %}"></use>
+    </svg>
+    </a>
+    <ul class="nav space-between-groups show-mediumup">
+        {% for item in site.data.nav.main-nav %}
+        <li>
+            <a class="ff-regular {% case page.layout %}{% when "home", "country-directory" %} co-white {% when "blog" %} co-33 {% else %}
+                co-black {% endcase %}" href={{ item.link }}>
+                {{item.name}}
+            </a>
+        </li>
+        {% endfor %}
+        <li>
+            <a class="btn" href="https://stax.onelink.me/nR0j/ussddirectory" target="_blank">
+                Get Stax
+            </a>
+        </li>
+    </ul>
+    <a href="#offcanvas-usage" uk-toggle class="hide-mediumup">
+        <svg class="co-blue" width="25" height="15">
+            <use href="/uploads/icon-sprite.svg#hamburger"></use>
+        </svg>
+    </a>
+</header>
+
+<div id="offcanvas-usage" uk-offcanvas>
+    <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="nav hide-mediumup">
+            {% for item in site.data.nav.main-nav %}
+            <li>
+                <a href={{ site.url }}{{ item.link }}>
+                    {{ item.name }}
+                </a>
+            </li>
+            {% endfor %}
+            <li>
+                <a class="btn" href="https://stax.onelink.me/nR0j/ussddirectory" target="_blank">
+                    Get Stax
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

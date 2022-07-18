@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<section class="wrapper-y will-grow half-way-bottom bg-lightblue">
+  <h1 class="tx-c h1 my-0 m-2">
+    {{ page.title }}
+  </h1>
+</section>
+<ul class="max-810 mx-auto wrapper-y half-way mt-3" uk-accordion>
+  {% for item in site.faqs %}
+  <li class="">
+    <a class="uk-accordion-title ff-bold" href="#">
+      {{ item.name }}
+    </a>
+    <div class="uk-accordion-content">
+      <p class="mt-1h max-633 lh-31">
+        {{ item.summary }}
+      </p>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+<section class="subscription mt-5">
+  <iframe width="640" height="418"
+    src="https://416e906b.sibforms.com/serve/MUIEAJ6f_YAxJKOrzJPw5l_6v-3PXDfdlMTdc6O6lcNK1UcoA3MoyD1W4X--OuKBJzodu3HhRnFl06VBeG4u0oIQ-tw5rZNwUu3C_QDTBS2sJXxoe1YPg1Hi09Xswm-bjWiQVlal7NDq8S8J0oqw3nnVM5tE5N2b0QL0aRsnxvNBlLgNg9DMoKNR3_yeCdoU7ZX_j7C1UdKzwe4N"
+    frameborder="0" scrolling="auto" allowfullscreen
+    style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+</section>

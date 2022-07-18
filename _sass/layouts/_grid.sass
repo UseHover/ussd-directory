@@ -1,0 +1,99 @@
+// // Grid
+
+// Widths
+.fit-content
+    width: fit-content
+
+.width-100-pc
+    width: 100% !important
+
+.max-935
+    max-width: 935px
+
+.max-867
+    max-width: 867px
+
+.max-810
+    max-width: 810px
+
+.max-700
+    max-width: 698px
+
+.max-672
+    max-width: 672px
+
+.max-667
+    max-width: 667px
+
+.max-633
+    max-width: 633px
+
+.max-527
+    max-width: 527px
+
+.max-474
+    max-width: 474px
+    width: 100%
+
+.max-365
+    max-width: 365px !important
+
+.max-286
+    max-width: 286px
+
+.max-285
+    max-width: 285px
+
+.max-261
+    max-width: 261px
+
+.max-213
+    max-width: 213px
+
+.max-150
+    max-width: 150px
+
+// Heights
+.height-272
+    height: 272px
+
+.h-80
+    height: 80px !important    
+
+.h-60
+    height: 60px !important
+
+.h-48
+    height: 48px !important
+
+.h-100p
+    height: 100%
+
+.grid
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
+    grid-gap: 2rem
+
+    &.auto-2
+        grid-template-columns: auto
+
+        @media #{$largeup}
+            grid-template-columns: 49% 49%
+
+    &.mostly-2
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
+
+        @media #{$largeup}
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr))
+
+    &.mostly-3
+        grid-template-columns: auto
+
+        @media #{$smallup}
+            grid-template-columns: repeat(auto-fit, minmax(315.8px, 1fr))
+
+    &.mostly-4
+        grid-template-columns: repeat(auto-fit, minmax(244px, 1fr))
+
+    &.mostly-5
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))

@@ -1,0 +1,170 @@
+// // Sections
+
+.uk-accordion
+    margin-top: 5rem
+
+    @media #{$mediumup}
+        margin-top: 10rem
+
+    li
+        margin-top: 0 !important
+
+.uk-accordion-title, .uk-accordion-content
+    padding: 1.6rem 2.7rem
+    border: 1px solid $offwhite
+    border-radius: 8px
+    font-size: $microfont
+    color: $black !important
+    line-height: $lh-32
+    margin: 2px
+    background-color: $white
+    display: block
+
+    &::before
+        background-image: url("/uploads/chevron-down.svg")
+
+.uk-open > .uk-accordion-title
+    &::before
+        background-image: url("/uploads/chevron-down.svg")
+
+.uk-accordion-content
+    padding-bottom: 1rem
+    font-size: $nanofont
+    color: $gray !important
+
+.subscription
+    background-image: url("/uploads/sub-bg.svg")
+    background-color: $white
+    text-align: center
+    background-repeat: no-repeat
+    background-position: 50% center
+    height: 100%
+    display: flex
+
+    input
+        max-width: 569px
+
+    &.wrapper
+        @media #{$largeup}
+            padding-top: 6.5rem
+
+.popup
+    border-radius: 24px
+    background-image: url("/uploads/popup-bg.png")
+    background-repeat: no-repeat
+    background-position: top left
+    background-size: 150px 200px
+
+.uk-offcanvas-bar
+    background: $white
+
+    a
+        color: $black
+
+    .uk-close
+        color: $black
+
+    .nav
+        display: block
+
+        @media #{$mediumup}
+            display: none
+
+        li
+            margin: 2rem 0
+
+            .btn
+                color: $white
+                width: fit-content
+
+.uk-subnav
+    &.filter
+        display: grid
+        grid-template-columns: auto auto
+        grid-gap: 2rem
+        border-bottom: 1px solid #E2E2E2
+        padding: 2rem
+        justify-content: center
+
+        @media #{$mediumup}
+            margin-left: 0
+            grid-template-columns: auto auto auto auto
+
+        @media #{$largeup}
+            padding: 5rem 1rem 4.7rem 1rem
+
+        p
+            padding: 1rem 2.4rem !important
+            border: 1px solid $offwhite
+            border-radius: 8px
+            background-color: $white
+            text-transform: capitalize !important
+            font-size: $nanofont !important
+            // font-family: $mediafont
+            margin-bottom: 1rem
+            font-family: $regularfont
+            color: $gray
+            .uk-subnav-pill > .uk-active > a, &:active, &:focus, &:hover
+                border: 1px solid $blue
+                background-color: $white
+                color: $blue
+                font-family: $semiboldfont
+
+        li
+            padding-left: 0
+
+.code-head
+    padding: 3rem 0
+
+    @media #{$mediumup}
+        padding: 4rem 0
+
+    @media #{$largeup}
+        padding: 7rem 0
+
+    @media #{$xlargeup}
+        padding: 10rem 0 10rem 0
+
+    .space-between-groups
+        margin-bottom: 2rem
+
+        @media #{$mediumup}
+            margin-bottom: 6rem
+
+.gsm-section
+    position: relative
+
+    @media #{$largeup}
+        background-image: url("/uploads/bg.png")
+        background-position: 100% 50%
+        background-size: 590px
+        background-repeat: no-repeat
+        right: 0
+        max-height: 532px
+
+.gsm
+    display: none
+    right: 10%
+    max-width: 320px
+    margin-left: 1rem
+
+    @media #{$mediumup}
+        display: block
+        bottom: 0
+
+    @media #{$largeup}
+        position: absolute
+        right: 10.1%
+
+    @media #{$xlargeup}
+        position: absolute
+        right: 15.1%
+
+
+.code-container
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    #loader
+        margin: auto

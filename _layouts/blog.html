@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<section class="bg-lightblue wrapper wrapper-y will-grow tx-c">
+  <h1 class="smalltext ff-semibold mt--2 lh-31">{{ page.title }}</h1>
+  <p class="co-black h2 ff-bold max-867 mx-auto">
+    {{ page.name }}
+  </p>
+</section>
+<section class="wrapper will-grow negate-bottom">
+  <ul class="grid mostly-3 wrapper-y will-grow">
+    {% for post in site.blog  %}
+    {% if post.tag == "Product" %}
+    <li class="blog-card mx-auto">
+      <a href={{ site.url }}/blog/{{ post.name }}>
+        <img class="mb-3" src="{{ site.url }}{{ post.img }}" alt="ussd growth illustration">
+        <p class="ff-bold mb-2">
+          {{ post.title }}
+        </p>
+        <sub class="co-blue nanotext ff-semibold">
+          Read article
+        </sub>
+      </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</section>

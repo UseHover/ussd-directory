@@ -1,0 +1,21 @@
+main-nav:
+- name: Directory
+  link: /directory
+- name: FAQs
+  link: /faqs  
+- name: Blog
+  link: https://blog.ussd.directory/
+
+social-links:
+- name: medium
+  link: https://medium.com/@joinstax
+- name: instagram
+  link: https://www.instagram.com/joinstax
+- name: twitter
+  link: https://twitter.com/joinstax
+- name: facebook
+  link: https://web.facebook.com/sstaxapp
+- name: youtube
+  link: https://www.youtube.com/channel/UCIblWJtpzazC_WR3FtBBV_g
+- name: stax
+  link: https://stax.me

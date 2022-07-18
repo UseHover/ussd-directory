@@ -1,0 +1,65 @@
+# Site settings
+title:          USSD
+shortname:      ussd
+company:        Hover Up
+description:    "Find USSD codes across Africa. We have thousands of entries across mobile network operators, banks, telcos, industries and utilities."
+url:            ''
+charset:        'UTF-8'
+timezone:       Africa/Lagos
+language: en
+
+collections:
+  uploads:
+    title: Uploads (Media & Files)
+  pages:
+    title: Pages
+    output: true
+    permalink: /:name/
+  blog:
+    title: Blog
+    output: true
+    permalink: /:collection/:name/
+  faqs:
+    title: Faqs
+
+defaults:
+  - scope:
+      path: ''
+      type: blog
+    values:
+      layout: blog-single
+  - scope:
+      path: ''
+      type: faqs
+    values:
+      layout: default
+
+# Included Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Build settings
+markdown:       kramdown
+
+# Include folders
+include:
+  - _pages
+
+# Handling Sass
+sass:
+  sass_dir: _sass
+  style: compressed
+
+
+# Exclude from processing.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .gitignore

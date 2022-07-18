@@ -1,0 +1,50 @@
+// // Buttons
+
+.btn
+    display: flex
+    align-items: center
+    text-align: center
+    justify-content: center
+    padding: 1rem 2.65rem
+    white-space: nowrap
+    height: 44px
+    max-height: 56px
+    font-size: $nanofont
+    border-radius: 0px 8px
+    background-color: $blue
+    color: $white
+    box-shadow: 4px 10px 20px rgba(0, 50, 79, 0.08)
+    border: 0
+
+    &:active, &:focus, &:hover
+        box-shadow: none
+
+    &.plain
+        border-radius: 8px
+        height: 80px
+        max-height: 80px
+        width: 90px
+
+    &.mh-56
+        min-height: 56px
+
+.switcher
+    button
+        background-color: transparent
+        color: $gray
+        display: flex
+        align-items: center
+        padding: 1.2rem
+        border-radius: 8px
+        border: none
+        font-size: $nanofont
+        width: 133px
+        &.active, &:active, &:hover, &:focus
+            color: $blue
+            background-color: $lightblue
+        // &:last-of-type
+        //     padding-right: 0
+.dropbtn
+    &::placeholder
+        font-family: $lightfont
+        // font-size: 16px
