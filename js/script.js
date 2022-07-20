@@ -36,6 +36,10 @@ if (!queryId) {
 			{
 				// console.log("here")
 				document.getElementById("loader").remove();
+				if (document.getElementById("view")) {
+					document.getElementById("view").classList.remove("d-none");
+					document.getElementById("view").classList.add("d-blk");
+				}
 			})
 	}
 
@@ -138,13 +142,21 @@ if (!queryId) {
 	function filterCountries(value)
 	{
 		const filteredCountries = [];
+		Array.from(document.getElementsByClassName("sub-filter")).forEach(item =>
+		{
+			if (item.id === value) {
+				document.getElementById(value).classList.add("on-active");
+			} else {
+				document.getElementById(item.id).classList.remove("on-active");
+			}
+		})
 		if (value === "all") {
 			UIDesign(countriesData)
 		} else {
 			countriesData.filter(function (item)
 			{
 				if (item.attributes.institution_type === value) {
-					filteredCountries.push(item)
+					filteredCountries.push(item);
 				}
 			})
 
@@ -259,15 +271,15 @@ if (!queryId) {
 
 	function addChannel(channel)
 	{
-		var tr = document.createElement("tr");
+		let tr = document.createElement("tr");
 		tr.append(getCodeCell(channel), getNameCell(channel));
 		$("#channel-list").append(tr);
 	}
 
 	function getCodeCell(channel)
 	{
-		var cell = document.createElement("td");
-		var link = document.createElement("a");
+		let cell = document.createElement("td");
+		let link = document.createElement("a");
 		link.href = "tel:" + channel.root_code.replace("#", "%23");
 		link.innerHTML = channel.root_code;
 		cell.append(link);
@@ -276,8 +288,8 @@ if (!queryId) {
 
 	function getNameCell(channel)
 	{
-		var cell = document.createElement("td");
-		var name = channel.name;
+		let cell = document.createElement("td");
+		let name = channel.name;
 		cell.append(country == null ? name + " " + channel.country_alpha2.toUpperCase() : name);
 		return cell;
 	}

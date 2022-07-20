@@ -45,6 +45,9 @@
 
     &:active, &:focus, &:hover
         background-color: $white
+        // padding-left: 5rem !important
+    &::placeholder
+        padding-left: -50px
 
 .home-banner
     background-image: url("/uploads/main-bg.png")
@@ -86,7 +89,7 @@
     background-color: $white
     border-radius: 8px
     box-shadow: 4px 10px 20px rgba(170, 170, 170, 0.16)
-    border: $borderline
+    // border: $borderline
     margin-top: 6rem
     max-height: 342px
     overflow-y: scroll
@@ -97,11 +100,11 @@
     left: 0
     top: 85px !important
 
-    li
-        &:first-of-type
-            position: sticky
-            top: 0
-            background-color: $white
+    // li
+    //     &:first-of-type
+    //         position: sticky
+    //         top: 0
+    //         background-color: $white
 
 .gridstyle
     display: grid

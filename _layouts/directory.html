@@ -12,27 +12,27 @@ layout: default
                 onkeyup="searchCountry()" autocomplete="off">
         </form>
         <ul class="bg-white search-drop dropdown-content" id="countrySearch" uk-drop="mode: click">
-            <li class="d-flx co-black border-bottom p-2 pt-3">
+            <!-- <li class="d-flx co-black border-bottom p-2 pt-3">
                 <svg class="mr-1" width="25" height="24">
                     <use href="/uploads/icon-sprite.svg#globe"></use>
                 </svg>
                 <p class="co-black">
                     Every country
                 </p>
-            </li>
+            </li> -->
         </ul>
     </section>
     <ul class="uk-subnav filter">
-        <li onclick="filterCountries(`all`)">
+        <li class="sub-filter on-active" onclick="filterCountries(`all`)" id="all">
             <p>All</p>
         </li>
-        <li onclick="filterCountries(`bank`)">
+        <li class="sub-filter" onclick="filterCountries(`bank`)" id="bank">
             <p>Banking</p>
         </li>
-        <li onclick="filterCountries(`telecom`)">
+        <li class="sub-filter" onclick="filterCountries(`telecom`)" id="telecom">
             <p>Telco</p>
         </li>
-        <li onclick="filterCountries(`mmo`)">
+        <li class="sub-filter" onclick="filterCountries(`mmo`)" id="mmo">
             <p>Mobile Money</p>
         </li>
     </ul>

@@ -113,6 +113,14 @@
         li
             padding-left: 0
 
+.sub-filter
+    &.on-active
+        p
+            border: 1px solid $blue
+            background-color: $white
+            color: $blue
+            font-family: $semiboldfont
+
 .code-head
     padding: 3rem 0
 
@@ -160,11 +168,11 @@
         position: absolute
         right: 15.1%
 
-
 .code-container
     position: relative
     display: flex
     align-items: center
     justify-content: center
+
     #loader
         margin: auto
