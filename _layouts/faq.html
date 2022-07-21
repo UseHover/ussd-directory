@@ -10,11 +10,11 @@ layout: default
 <ul class="max-810 mx-auto wrapper-y half-way mt-3" uk-accordion>
   {% for item in site.faqs %}
   <li class="">
-    <a class="uk-accordion-title ff-bold" href="#">
+    <button class="accordion ff-bold">
       {{ item.name }}
-    </a>
-    <div class="uk-accordion-content">
-      <p class="mt-1h max-633 lh-31">
+    </button>
+    <div class="panel d-none">
+      <p class="mt-1h max-633">
         {{ item.summary }}
       </p>
     </div>

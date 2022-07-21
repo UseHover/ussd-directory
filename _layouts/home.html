@@ -59,7 +59,7 @@ layout: default1
                 </svg>
             </a>
             <input class="uk-search-input bg-white picotext h-48" type="search"
-                placeholder="Search bank, telecom, mobile money, etc" onkeyup="search()" id="searchFilter">
+                placeholder="Search bank, telecom, mobile money, etc" onkeyup="search()" onkeydown="preventD()" id="searchFilter">
         </form>
         <section class="code-head">
             <div class="space-between-groups flex-wrap">
@@ -120,22 +120,6 @@ layout: default1
     <h4 class="co-deepblack mb-5 h2 mt-5h">
         USSD blog
     </h4>
-    <!-- <ul class="grid mostly-3">
-        {% for post in site.blog limit: 3 %}
-        <li class="blog-card mx-auto">
-            <a href={{ site.url }}/blog/{{ post.name }}>
-                <img class="mb-3" src="{{ site.url }}{{ post.img }}" alt="ussd growth illustration">
-                <p class="ff-bold mb-2">
-                    {{ post.title }}
-                </p>
-                <sub class="co-blue nanotext ff-semibold">
-                    Read article
-                </sub>
-            </a>
-        </li>
-        {% endfor %}
-    </ul> -->
-    <!-- <a  href="{{site.url}}/blog">View all</a> -->
     <div id="recent-blog-posts" class="row overflow-hidden grid mostly-3">
 
         <!-- Fetch post from blog -->
@@ -143,10 +127,8 @@ layout: default1
             <div class="col-lg-3 col-md-5 blog-post-thumb-container">
                 <div class="skewed-bg-bottom-left position-relative mid-grey-bg blog-post-thumb">
                     <a href="" class="stretched-link">
-                        <!--Post Image-->
                         <img src="" class="featured-img" alt="" />
                         <h3 class="title"></h3>
-                        <!-- <time class="featured-date co-blue nanotext ff-semibold" date="yyyy-mm-dd"></time> -->
                     </a>
                 </div>
             </div>
@@ -162,23 +144,21 @@ layout: default1
     <h3 class="tx-c h1 mb-4 mt-0">
         Frequently asked questions
     </h3>
-    <ul class="mx-auto max-672 mt-4" uk-accordion>
-        {% for item in site.faqs limit: 6 %}
+    <ul class="mx-auto max-672 mt-4 uk-accordion">
+        {% for item in site.faqs limit: 5 %}
         <li class="">
-            <a class="uk-accordion-title ff-bold" href="#">
+            <button class="accordion ff-bold">
                 {{ item.name }}
-            </a>
-            <div class="uk-accordion-content">
+            </button>
+            <div class="panel d-none">
                 <p class="mt-1h max-633">
                     {{ item.summary }}
                 </p>
             </div>
         </li>
         {% endfor %}
-        <li class="tx-c">
-            <a class="ff-semibold microtext co-blue mt-4 d-blk" href="{{site.url}}/faqs">See all FAQs</a>
-        </li>
     </ul>
+    <a class="ff-semibold microtext co-blue mt-4 d-blk tx-c" href="{{site.url}}/faqs">See all FAQs</a>
 </section>
 {% include components/prefooter.html %}
 <script src="https://unpkg.com/@tryghost/content-api@1.5.14/umd/content-api.min.js"></script>

@@ -106,6 +106,9 @@ if (!queryId) {
 				<a href="tel:${item.attributes.root_code}" id="myInput" class="h5 smalltext lh-32 mt-0 mb-1h">
 					${item.attributes.root_code}
   			</a>
+				<p class="copy no-wrap mb-1h ff-medium">
+				${item.attributes.institution_type}
+				</p>
 				`;
 				newDiv.append(ussdLi)
 			} else if (index <= 15) {
@@ -128,6 +131,9 @@ if (!queryId) {
 				<a href="tel:${item.attributes.root_code}" id="myInput" class="h5 smalltext lh-32 mt-0 mb-1h">
 					${item.attributes.root_code}
 				</a>
+				<p class="copy no-wrap mb-1h ff-medium">
+				${item.attributes.institution_type}
+				</p>
 			`;
 				newDiv.append(ussdLi)
 			}
@@ -205,6 +211,17 @@ if (!queryId) {
 				}
 			}
 		}
+	}
+
+	function preventD()
+	{
+		const input = document.getElementById("searchFilter");
+		input.addEventListener("keypress", function (event)
+		{
+			if (event.key === "Enter") {
+				event.preventDefault()
+			}
+		});
 	}
 
 	function loadCountries()

@@ -9,7 +9,7 @@
     li
         margin-top: 0 !important
 
-.uk-accordion-title, .uk-accordion-content
+.accordion, .panel
     padding: 1.6rem 2.7rem
     border: 1px solid $offwhite
     border-radius: 8px
@@ -20,14 +20,21 @@
     background-color: $white
     display: block
 
+.accordion
+    width: 100%
+    margin: 0 2px 2px 0
+    text-align: left
+    position: relative
     &::before
-        background-image: url("/uploads/chevron-down.svg")
+        content: ""
+        background: url("/uploads/chevron-down.svg")
+        position: absolute
+        right: 2.7rem
+        width: 28px
+        height: 24px
+        top: 1.6rem
 
-.uk-open > .uk-accordion-title
-    &::before
-        background-image: url("/uploads/chevron-down.svg")
-
-.uk-accordion-content
+.panel
     padding-bottom: 1rem
     font-size: $nanofont
     color: $gray !important
@@ -114,6 +121,9 @@
             padding-left: 0
 
 .sub-filter
+    p
+        display: flex
+        justify-content: center
     &.on-active
         p
             border: 1px solid $blue
