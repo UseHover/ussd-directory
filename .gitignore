@@ -10,3 +10,9 @@ _site/
 vendor/
 .DS_store
 .idea/
+node_modules/
+js/bundle.js
+js/bundle.js.LICENSE.txt
+
+# ignore log files
+*.log
