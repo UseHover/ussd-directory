@@ -13,8 +13,8 @@ axiosInstance.interceptors.request.use(config => {
 
 const http = (url, method = 'GET', data = {}) => axiosInstance({ url, method, data })
 
-export const getChannels = (queryParams = '') => {
-  const endpoint = `${endpoints.CHANNELS}?bookmarked=true&order_key=name&per_page=100&${queryParams}`
+export const getChannels = (queryParams = '', perPage = 100) => {
+  const endpoint = `${endpoints.CHANNELS}?bookmarked=true&order_key=name&per_page=${perPage}&${queryParams}`
   return http(endpoint)
 }
 

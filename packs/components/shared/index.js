@@ -2,5 +2,6 @@ import CountrySearchInput from './CountrySearchInput'
 import Header from './Header'
 import BannerContent from './BannerContent'
 import Loader from './Loader'
+import ChannelList from './ChannelList'
 
-export { BannerContent, CountrySearchInput, Header, Loader }
+export { BannerContent, ChannelList, CountrySearchInput, Header, Loader }
