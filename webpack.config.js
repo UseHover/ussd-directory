@@ -1,4 +1,5 @@
-const path = require("path");
+const path = require("path")
+const DotEnv = require('dotenv-webpack')
 
 module.exports = {
     entry: './packs/index.js',
@@ -26,5 +27,8 @@ module.exports = {
                 use: ['yaml-loader']
             }
         ]
-    }
+    },
+    plugins: [
+        new DotEnv(),
+    ]
 };

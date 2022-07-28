@@ -16,3 +16,6 @@ js/bundle.js.LICENSE.txt
 
 # ignore log files
 *.log
+
+# ignore env files
+.env
