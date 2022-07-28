@@ -1,7 +1,19 @@
-import React from 'react'
-import { BannerContent, CountrySearchInput, Header } from '../components/shared'
+import React, { useEffect, useState } from 'react'
+import { BannerContent, ChannelList, CountrySearchInput, Header } from '../components/shared'
+import { getChannels } from '../http'
 
 const Home = () => {
+  const [channels, setChannels] = useState({})
+
+  useEffect(() => {
+    const loadChannels = async () => {
+      const response = await getChannels('', 50)
+      setChannels(response.data)
+    }
+
+    loadChannels()
+  }, [])
+
   return (
     <>
       <section className="home-banner">
@@ -48,34 +60,7 @@ const Home = () => {
             />
           </form>
 
-          <section className="code-head">
-            <div className="space-between-groups flex-wrap">
-              <p className="ff-bold smalltext no-wrap mb-1 mx-auto ml-0">All Countries</p>
-              <div className="switcher d-flx flt-r show-mediumup">
-                <button id="btn1" className="mr-1 active">
-                  <p className="mr-1h">Grid view</p>
-                  <svg width="25" height="24">
-                    <use href="/uploads/icon-sprite.svg#grid-box"></use>
-                  </svg>
-                </button>
-                <button id="btn2" className="">
-                  <p className="mr-1h">List view</p>
-                  <svg width="26" height="24">
-                    <use href="/uploads/icon-sprite.svg#list-box"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <section>
-              <div className="code-container">
-                <div id="loader"></div>
-              </div>
-              <div id="ussdList"></div>
-            </section>
-            <a href="/directory" className="ff-medium co-blue mt-3 microtext d-none fit-content mx-auto" id="view">
-              View more
-            </a>
-          </section>
+          <ChannelList channels={channels} />
         </div>
       </section>
 
