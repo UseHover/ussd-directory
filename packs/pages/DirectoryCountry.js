@@ -7,6 +7,21 @@ const DirectoryCountry = () => {
   const countriesContext = useContext(CountriesContext)
   const country = countriesContext.selectedCountry
   const [channels, setChannels] = useState({})
+  const [displayStyle, setDisplayStyle] = useState('gridstyle')
+
+  const onChangeListDisplay = event => {
+    const currentId = event.currentTarget.id
+
+    if (currentId === 'listStyleBtn') {
+      setDisplayStyle('liststyle')
+      return
+    }
+
+    if (currentId === 'gridStyleBtn') {
+      setDisplayStyle('gridstyle')
+      
+    }
+  }
 
   useEffect(() => {
     const loadChannels = async () => {
@@ -19,7 +34,6 @@ const DirectoryCountry = () => {
     }
   }, [country?.alpha2])
 
-  console.log({ channels })
   return (
     <>
       <section className="home-banner">
@@ -69,13 +83,21 @@ const DirectoryCountry = () => {
             <div className="space-between-groups flex-wrap">
               <p className="ff-bold smalltext no-wrap mb-1 mx-auto ml-0">{countriesContext.selectedCountry?.name}</p>
               <div className="switcher d-flx flt-r show-mediumup">
-                <button id="btn1" className="mr-1 active">
+                <button
+                  id="gridStyleBtn"
+                  className={`mr-1 ${displayStyle === 'gridstyle' ? 'active' : ''}`}
+                  onClick={onChangeListDisplay}
+                >
                   <p className="mr-1h">Grid view</p>
                   <svg width="25" height="24">
                     <use href="/uploads/icon-sprite.svg#grid-box"></use>
                   </svg>
                 </button>
-                <button id="btn2" className="">
+                <button
+                  id="listStyleBtn"
+                  className={displayStyle === 'liststyle' ? 'active' : ''}
+                  onClick={onChangeListDisplay}
+                >
                   <p className="mr-1h">List view</p>
                   <svg width="26" height="24">
                     <use href="/uploads/icon-sprite.svg#list-box"></use>
@@ -88,7 +110,7 @@ const DirectoryCountry = () => {
                 <Loader />
               ) : (
                 <div id="ussdList" className="">
-                  <ul id="ulList" className="gridstyle">
+                  <ul id="ulList" className={displayStyle}>
                     {channels.data.map(channel => (
                       <li className="list-card" key={channel.id}>
                         <div className="space-between-groups listly mb-1h">
