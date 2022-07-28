@@ -24,16 +24,16 @@ const Header = () => {
             </a>
           </li>
         </ul>
-        <a href="#offcanvas-usage" uk-toggle className="hide-mediumup">
+        <a href="#offcanvas-usage" className="hide-mediumup">
           <svg className="co-blue" width="25" height="15">
             <use href="/uploads/icon-sprite.svg#hamburger"></use>
           </svg>
         </a>
       </header>
 
-      <div id="offcanvas-usage" uk-offcanvas>
+      <div id="offcanvas-usage">
         <div className="uk-offcanvas-bar">
-          <button className="uk-offcanvas-close" type="button" uk-close></button>
+          <button className="uk-offcanvas-close" type="button"></button>
           <ul className="nav hide-mediumup">
             {nav['main-nav'].map((navItem, index) => (
               <li key={index}>
