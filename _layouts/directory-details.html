@@ -1,34 +1,10 @@
 ---
 layout: default
 ---
-<section class="wrapper will-grow">
-    <a href="/directory" class="d-flx mb-3">
-        <svg width="24" height="24">
-            <use href="/uploads/icon-sprite.svg#left-arrow"></use>
-        </svg>
-        <p class="ml-1 co-blue ff-regular">Back to directory</p>
-    </a>
-    <h1 class="d-flx al-i-c mb-1-2" id="header"></h1>
-    <article class="grid mostly-2" id="info">
-        <div class="card-details co-darkblue class="pos-r"" id="card-details">
-            <div class="code-container">
-                <div id="loader"></div>
-            </div>
-        </div>
-    </article>
-    <article>
-        <p>
-            Disclaimer: The tool is provided for informational purposes only. Whilst every effort is made to provide
-            accurate data,
-            users must acknowledge that this website accepts no liability whatsoever with respect to its accuracy. Only
-            your bank
-            can confirm the correct bank account information. If you are making an important payment, which is
-            time-critical, we
-            recommend contacting your bank first.
-        </p>
-    </article>
-</section>
+
 {% include components/prefooter.html %}
+{% include shell/footer.html %}
+<script type="text/javascript" src="{{site.url}}/js/bundle.js" charset="utf-8" />
 <script>
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);

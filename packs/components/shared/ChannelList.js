@@ -27,7 +27,11 @@ const ChannelList = ({ channels, country }) => {
     console.log('Viewing more...')
   }
 
-  console.log(window.location)
+  const onClickListItem = channel => {
+    window.location.replace(
+      `/directory-details/?channelId=${channel.id}&name=${channel.attributes.name.toLowerCase().replace(' ', '-')}`
+    )
+  }
 
   return (
     <section className="code-head">
@@ -63,7 +67,7 @@ const ChannelList = ({ channels, country }) => {
           <div id="ussdList" className="">
             <ul id="ulList" className={displayStyle}>
               {channels.data.map(channel => (
-                <li className="list-card" key={channel.id}>
+                <li className="list-card" key={channel.id} onClick={() => onClickListItem(channel)}>
                   <div className="space-between-groups listly mb-1h">
                     <p className="ff-medium lh-24">{channel.attributes.name}</p>
                     <p className="co-purple picotext uppercase ff-medium mr-2-0">{channel.attributes.country_alpha2}</p>
@@ -82,7 +86,7 @@ const ChannelList = ({ channels, country }) => {
           </div>
         )}
       </section>
-      {channels?.data && channels.data.length > 0 && (
+      {channels?.data && channels.data.length < channels?.meta?.count && (
         <a onClick={onViewMore} className={`ff-medium co-blue mt-3 microtext fit-content mx-auto d-blk`} id="view">
           View more
         </a>

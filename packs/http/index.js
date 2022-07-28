@@ -18,4 +18,9 @@ export const getChannels = (queryParams = '', perPage = 100) => {
   return http(endpoint)
 }
 
+export const getChannelActions = channelId => {
+  const endpoint = `${endpoints.CHANNEL_ACTIONS}?channel_id=${channelId}`
+  return http(endpoint)
+}
+
 export default http
