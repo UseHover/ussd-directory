@@ -16,6 +16,19 @@ const ChannelList = ({ channels, country }) => {
     setDisplayStyle('gridstyle')
   }
 
+  const onViewMore = () => {
+    const currentPath = window.location.pathname
+
+    if (currentPath === '/') {
+      window.location.replace('/directory/')
+      return
+    }
+
+    console.log('Viewing more...')
+  }
+
+  console.log(window.location)
+
   return (
     <section className="code-head">
       <div className="space-between-groups flex-wrap">
@@ -69,9 +82,11 @@ const ChannelList = ({ channels, country }) => {
           </div>
         )}
       </section>
-      <a href="/directory" className="ff-medium co-blue mt-3 microtext d-none fit-content mx-auto" id="view">
-        View more
-      </a>
+      {channels?.data && channels.data.length > 0 && (
+        <a onClick={onViewMore} className={`ff-medium co-blue mt-3 microtext fit-content mx-auto d-blk`} id="view">
+          View more
+        </a>
+      )}
     </section>
   )
 }

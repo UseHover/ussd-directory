@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { CountriesContext } from '../index'
+import PropTypes from 'prop-types'
 
-const CountrySearchInput = () => {
+const CountrySearchInput = ({ hasBanner }) => {
   const countriesContext = useContext(CountriesContext)
   const [countries, setCountries] = useState([])
   const countryListRef = useRef(null)
@@ -47,7 +48,7 @@ const CountrySearchInput = () => {
   useEffect(() => setCountries(countriesContext.countries), [countriesContext.countries])
 
   return (
-    <section className="max-667 mx-auto pos-r">
+    <section className={`${hasBanner ? 'max-667' : 'uk-search-default'} mx-auto pos-r`}>
       <form className="uk-search uk-search-default mt-5" type="button" id="searchCountryForm">
         <a href="" className="uk-search-icon">
           <svg width="24" height="24">
@@ -57,7 +58,7 @@ const CountrySearchInput = () => {
 
         <input
           id="searchInput"
-          className="uk-search-input dropbtn bg-white"
+          className={`uk-search-input dropbtn bg-white ${hasBanner ? '' : 'h-80'}`}
           placeholder="Search country"
           autoComplete="off"
           onClick={onCountrySearchClick}
@@ -67,8 +68,8 @@ const CountrySearchInput = () => {
       </form>
       <ul
         ref={countryListRef}
-        className="bg-white search-drop dropdown-content uk-drop uk-drop-bottom-left"
-        style={{ left: '49px', top: '70px' }}
+        className={`bg-white search-drop dropdown-content uk-drop uk-drop-bottom-left`}
+        style={hasBanner ? { left: '49px', top: '70px' } : {}}
         id="countrySearch"
       >
         {countries.map(country => (
@@ -80,6 +81,14 @@ const CountrySearchInput = () => {
       </ul>
     </section>
   )
+}
+
+CountrySearchInput.propTypes = {
+  hasBanner: PropTypes.bool,
+}
+
+CountrySearchInput.defaultProps = {
+  hasBanner: true,
 }
 
 export default CountrySearchInput

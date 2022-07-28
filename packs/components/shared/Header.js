@@ -1,19 +1,20 @@
 import React from 'react'
 import nav from '../../../_data/nav.yml'
+import PropTypes from 'prop-types'
 
-const Header = () => {
+const Header = ({ hasBanner }) => {
   return (
     <>
       <header className="header space-between-groups mx-auto">
         <a href="/" className="logo">
           <svg width="91" height="44">
-            <use href="/uploads/icon-sprite.svg#logo-white"></use>
+            <use href={`/uploads/icon-sprite.svg#${hasBanner ? 'logo-white' : 'logo-coloured'}`}></use>
           </svg>
         </a>
         <ul className="nav space-between-groups show-mediumup">
           {nav['main-nav'].map((navItem, index) => (
             <li key={index}>
-              <a className="ff-regular co-white" href={navItem.link}>
+              <a className={`ff-regular ${hasBanner ? 'co-white' : 'co-black'}`} href={navItem.link}>
                 {navItem.name}
               </a>
             </li>
@@ -50,6 +51,14 @@ const Header = () => {
       </div>
     </>
   )
+}
+
+Header.propTypes = {
+  hasBanner: PropTypes.bool,
+}
+
+Header.defaultProps = {
+  hasBanner: true,
 }
 
 export default Header
