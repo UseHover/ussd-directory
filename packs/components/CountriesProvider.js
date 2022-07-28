@@ -6,6 +6,8 @@ import CountriesContext from './CountriesContext'
 
 const CountriesProvider = ({ children }) => {
   const [countries, setCountries] = useState([])
+  const [selectedCountry, selectCountry] = useState()
+  const countryCode = window.location.search.split('=')[1]
 
   useEffect(() => {
     const loadCountries = async () => {
@@ -17,19 +19,21 @@ const CountriesProvider = ({ children }) => {
           .map(char => 127397 + char.charCodeAt())
         return { ...country, ...{ codePoints } }
       })
+
       setCountries(countries)
+      if (countryCode) {
+        selectCountry(countries.filter(c => c.alpha2 === countryCode)[0])
+      }
     }
 
     loadCountries()
-  }, [])
+  }, [countryCode])
 
-  return <CountriesContext.Provider value={{ countries }}>{children}</CountriesContext.Provider>
+  return <CountriesContext.Provider value={{ countries, selectedCountry }}>{children}</CountriesContext.Provider>
 }
 
 CountriesProvider.propTypes = {
-  cart: PropTypes.object,
   children: PropTypes.node.isRequired,
-  createCart: PropTypes.func.isRequired,
 }
 
 export default CountriesProvider
