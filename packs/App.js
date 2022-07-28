@@ -7,7 +7,7 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/directory" element={<Directory />} />
-      <Route path="/directory/:channelId" element={<DirectoryDetail />} />
+      <Route path="/directory-country" element={<DirectoryDetail />} />
     </Routes>
   </BrowserRouter>
 )
