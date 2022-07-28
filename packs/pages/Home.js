@@ -1,7 +1,46 @@
-import React from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import Header from '../components/shared/Header'
+import { CountriesContext } from '../components'
 
 const Home = () => {
+  const countriesContext = useContext(CountriesContext)
+  const [countries, setCountries] = useState([])
+  const countryListRef = useRef(null)
+
+  const countrySearchOnBlur = () => {
+    countryListRef.current.classList.remove('uk-open')
+  }
+
+  const countrySearchOnClick = () => {
+    const classList = countryListRef.current.classList
+
+    if (classList.contains('uk-open')) {
+      classList.remove('uk-open')
+      return
+    }
+
+    classList.add('uk-open')
+  }
+
+  const filterCountries = event => {
+    countryListRef.current.classList.add('uk-open')
+    const value = event.currentTarget.value.toLowerCase()
+
+    if (value.length === 0) {
+      setCountries(countriesContext.countries)
+      return
+    }
+
+    setCountries([
+      ...countries.filter(c => {
+        const name = c.name.toLowerCase()
+        return name.indexOf(value) !== -1 || name === value
+      }),
+    ])
+  }
+
+  useEffect(() => setCountries(countriesContext.countries), [countriesContext.countries])
+
   return (
     <>
       <section className="home-banner">
@@ -20,15 +59,32 @@ const Home = () => {
                     <use href="/uploads/icon-sprite.svg#search"></use>
                   </svg>
                 </a>
+
                 <input
                   id="searchInput"
                   className="uk-search-input dropbtn bg-white"
                   placeholder="Search country"
                   autoComplete="off"
+                  onClick={countrySearchOnClick}
+                  onBlur={countrySearchOnBlur}
+                  onInput={filterCountries}
                 />
               </form>
-              <ul className="bg-white search-drop dropdown-content" id="countrySearch"></ul>
+              <ul
+                ref={countryListRef}
+                className="bg-white search-drop dropdown-content uk-drop uk-drop-bottom-left"
+                style={{ left: '49px', top: '70px' }}
+                id="countrySearch"
+              >
+                {countries.map(country => (
+                  <li className="d-flx al-i-c p-2 py-1 country" key={country.alpha2}>
+                    <span className="country">{String.fromCodePoint(...country.codePoints)}</span>
+                    <p className="co-black ff-medium nanotext">{country.name}</p>
+                  </li>
+                ))}
+              </ul>
             </section>
+            .
           </div>
         </article>
       </section>

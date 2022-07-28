@@ -1,17 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-console.log('We are ehre')
+import { CountriesProvider } from './components'
 
 const root = ReactDOM.createRoot(document.getElementById('appRoot'))
 
-if (!root) {
-  console.log('Root element does not exist')
-}
-
 root.render(
   <React.StrictMode>
-    <App />
+    <CountriesProvider>
+      <App />
+    </CountriesProvider>
   </React.StrictMode>
 )
 
