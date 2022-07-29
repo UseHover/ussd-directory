@@ -1,9 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Loader } from './index'
 import PropTypes from 'prop-types'
+import { getChannels } from '../../http'
+
+const paginationState = {
+  page: 1,
+  perPage: 100,
+  fetching: false,
+}
 
 const ChannelList = ({ channels, country }) => {
   const [displayStyle, setDisplayStyle] = useState('gridstyle')
+  const [pagination, setPagination] = useState(paginationState)
+  const [channelList, setChannelList] = useState({})
 
   const onChangeListDisplay = event => {
     const currentId = event.currentTarget.id
@@ -16,7 +25,7 @@ const ChannelList = ({ channels, country }) => {
     setDisplayStyle('gridstyle')
   }
 
-  const onViewMore = () => {
+  const onViewMore = async () => {
     const currentPath = window.location.pathname
 
     if (currentPath === '/') {
@@ -24,7 +33,18 @@ const ChannelList = ({ channels, country }) => {
       return
     }
 
-    console.log('Viewing more...')
+    const nextPage = pagination.page + 1
+    let queryParams = `page=${nextPage}`
+
+    if (country.alpha2) {
+      queryParams = `${queryParams}&country=${country.alpha2}`
+    }
+
+    setPagination({ ...pagination, ...{ fetching: true } })
+    const response = await getChannels(queryParams, pagination.perPage, nextPage)
+
+    setChannelList({ ...channelList, ...{ data: [...channelList.data, ...response.data.data] } })
+    setPagination({ ...pagination, ...{ page: nextPage, fetching: false } })
   }
 
   const onClickListItem = channel => {
@@ -32,6 +52,8 @@ const ChannelList = ({ channels, country }) => {
       `/directory-details/?channelId=${channel.id}&name=${channel.attributes.name.toLowerCase().replace(' ', '-')}`
     )
   }
+
+  useEffect(() => setChannelList(channels), [channels])
 
   return (
     <section className="code-head">
@@ -61,12 +83,12 @@ const ChannelList = ({ channels, country }) => {
         </div>
       </div>
       <section>
-        {Object.keys(channels).length === 0 ? (
+        {Object.keys(channelList).length === 0 ? (
           <Loader />
         ) : (
           <div id="ussdList" className="">
             <ul id="ulList" className={displayStyle}>
-              {channels.data.map(channel => (
+              {channelList.data.map(channel => (
                 <li className="list-card" key={channel.id} onClick={() => onClickListItem(channel)}>
                   <div className="space-between-groups listly mb-1h">
                     <p className="ff-medium lh-24">{channel.attributes.name}</p>
@@ -86,9 +108,14 @@ const ChannelList = ({ channels, country }) => {
           </div>
         )}
       </section>
-      {channels?.data && channels.data.length < channels?.meta?.count && (
-        <a onClick={onViewMore} className={`ff-medium co-blue mt-3 microtext fit-content mx-auto d-blk`} id="view">
-          View more
+      {channelList?.data && channelList.data.length < channelList?.meta?.count && (
+        <a
+          onClick={onViewMore}
+          className={`ff-medium co-blue mt-3 microtext fit-content mx-auto d-blk`}
+          id="view"
+          disabled={pagination.fetching}
+        >
+          {pagination.fetching ? <Loader /> : <span>View more</span>}
         </a>
       )}
     </section>
