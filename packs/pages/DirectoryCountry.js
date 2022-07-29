@@ -50,20 +50,6 @@ const DirectoryCountry = () => {
           </li>
         </ul>
         <div className="wrapper will-grow">
-          <form className="uk-search uk-search-default max-365">
-            <a href="" className="uk-search-icon">
-              <svg width="24" height="24">
-                <use href="/uploads/icon-sprite.svg#search"></use>
-              </svg>
-            </a>
-            <input
-              className="uk-search-input bg-white picotext h-48"
-              type="search"
-              placeholder="Search bank, telecom, mobile money, etc"
-              id="searchFilter"
-            />
-          </form>
-
           <ChannelList channels={channels} country={country} />
         </div>
       </section>

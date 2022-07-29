@@ -19,29 +19,20 @@ const Directory = () => {
       <Header hasBanner={false} />
       <CountrySearchInput hasBanner={false} />
       <ul className="uk-subnav filter">
-        <li className="sub-filter on-active" id="all">
+        <li className="sub-filter on-active">
           <p>All</p>
         </li>
-        <li className="sub-filter" id="bank">
+        <li className="sub-filter">
           <p>Banking</p>
         </li>
-        <li className="sub-filter" id="telecom">
+        <li className="sub-filter">
           <p>Telco</p>
         </li>
-        <li className="sub-filter" id="mmo">
+        <li className="sub-filter">
           <p>Mobile Money</p>
         </li>
       </ul>
       <div className="wrapper will-grow">
-        <form className="uk-search uk-search-default max-365">
-          <a href="" className="uk-search-icon">
-            <svg width="24" height="24">
-              <use href="/uploads/icon-sprite.svg#search"></use>
-            </svg>
-          </a>
-          <input className="uk-search-input bg-white picotext h-48" type="search" placeholder="Search institution" />
-        </form>
-
         <ChannelList channels={channels} />
       </div>
     </>
