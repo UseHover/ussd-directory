@@ -1,6 +1,43 @@
 ---
 layout: default1
 ---
+<section class="wrapper will-grow d-flx gsm-section bg-lightblue">
+    <div class="mb-2 width-100-pc max-474">
+        <h2 class="mb-1h mt-1">Get Stax</h2>
+        <p class="lh-31 mb-2h">
+            Never dial a USSD Code Again. Let Stax do it for you. Stax makes it simpler and easier for you to send
+            money, buy airtime, request money, check your account balance, and do more with your bank and mobile money
+            accounts. It leverages USSD automation technology to give you more control of your money. No need to
+            remember different USSD codes, switch from bank app to fintech app or biller to biller ever again. Best part
+            is - it works offline.
+        </p>
+        <a href="https://stax.onelink.me/nR0j/ussddirectory" target="_blank" rel="noreferrer">
+            <img class="google-play mr-2 mb-2" src="/uploads/play.png" alt="Google-play" />
+        </a>
+    </div>
+    <img class="gsm" src="/uploads/gsm.png" alt="mobile app view" />
+</section>
+
+<section class="wrapper will-grow negate-bottom">
+    <h4 class="co-deepblack mb-5 h2 mt-5h">USSD blog</h4>
+    <div id="recent-blog-posts" class="row overflow-hidden grid mostly-3">
+        <template>
+            <div class="col-lg-3 col-md-5 blog-post-thumb-container">
+                <div class="skewed-bg-bottom-left position-relative mid-grey-bg blog-post-thumb">
+                    <a href="" class="stretched-link">
+                        <img src="" class="featured-img" alt="" />
+                        <h3 class="title"></h3>
+                    </a>
+                </div>
+            </div>
+        </template>
+    </div>
+    <div class="col-lg-2 col-md-5 home-blog-post-link order-last order-lg-first order-md-6">
+        <a href="https://blog.ussd.directory" class="ff-semibold microtext co-blue mt-5 d-blk tx-r">
+            View all
+        </a>
+    </div>
+</section>
 
 <section class="wrapper will-grow wrapper-y">
     <h3 class="tx-c h1 mb-4 mt-0">
@@ -24,5 +61,37 @@ layout: default1
 </section>
 {% include components/prefooter.html %}
 {% include shell/footer.html %}
+
+<script src="https://unpkg.com/@tryghost/content-api@1.5.14/umd/content-api.min.js"></script>
+<!-- Ghost Api/ Fetch posts -->
+<script>
+    const api = new GhostContentAPI({
+        url: "https://ussd-by-stax.ghost.io",
+        key: "c7c6b72b21e56b6946d97c2b5b",
+        version: "v3",
+    });
+    api.posts
+      .browse({ limit: 3 })
+      .then((posts) => {
+          var temp = document.getElementsByTagName("template")[0]; // reference of template tag in DOM;
+          posts.forEach((post) => {
+              var card = temp.content.cloneNode(true); // copy of template’s content
+              var image = card.querySelector(".featured-img");
+              var title = card.querySelector(".title");
+              var a = card.querySelector(".stretched-link");
+              // var date = card.querySelector(".featured-date");
+              a.href = post.url;
+              image.alt = post.title;
+              image.src = post.feature_image;
+              title.textContent = post.title;
+              // date.textContent = post.published_at;
+              var cardContainer = document.getElementById("recent-blog-posts"); // place on the page where we want to append our template
+              cardContainer.appendChild(card); // append the template’s copy to the page
+          });
+      })
+      .catch((err) => {
+          console.error(err);
+      });
+</script>
 <script type="text/javascript" src="{{site.url}}/js/bundle.js" charset="utf-8" />
 
