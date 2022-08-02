@@ -117,7 +117,7 @@ const ChannelList = ({ channels, country }) => {
                 className={`mr-1 ${displayStyle === 'gridstyle' ? 'active' : ''}`}
                 onClick={onChangeListDisplay}
               >
-                <p className="mr-1h">Grid view</p>
+                <p className="mr-1h no-wrap">Grid view</p>
                 <svg width="25" height="24">
                   <use href="/uploads/icon-sprite.svg#grid-box"></use>
                 </svg>

@@ -43,11 +43,13 @@ layout: default1
     <h3 class="tx-c h1 mb-4 mt-0">
         Frequently asked questions
     </h3>
-    <ul class="mx-auto max-672 mt-4 uk-accordion">
+    <ul class="mx-auto max-672 mt-4 uk_accordion">
         {% for item in site.faqs limit: 5 %}
         <li class="">
             <button class="accordion ff-bold">
+            <p class="mr-2">
                 {{ item.name }}
+            </p>
             </button>
             <div class="panel d-none">
                 <p class="mt-1h max-633">
@@ -71,27 +73,27 @@ layout: default1
         version: "v3",
     });
     api.posts
-      .browse({ limit: 3 })
-      .then((posts) => {
-          var temp = document.getElementsByTagName("template")[0]; // reference of template tag in DOM;
-          posts.forEach((post) => {
-              var card = temp.content.cloneNode(true); // copy of template’s content
-              var image = card.querySelector(".featured-img");
-              var title = card.querySelector(".title");
-              var a = card.querySelector(".stretched-link");
-              // var date = card.querySelector(".featured-date");
-              a.href = post.url;
-              image.alt = post.title;
-              image.src = post.feature_image;
-              title.textContent = post.title;
-              // date.textContent = post.published_at;
-              var cardContainer = document.getElementById("recent-blog-posts"); // place on the page where we want to append our template
-              cardContainer.appendChild(card); // append the template’s copy to the page
-          });
-      })
-      .catch((err) => {
-          console.error(err);
-      });
+        .browse({ limit: 3 })
+        .then((posts) => {
+            var temp = document.getElementsByTagName("template")[0]; // reference of template tag in DOM;
+            posts.forEach((post) => {
+                var card = temp.content.cloneNode(true); // copy of template’s content
+                var image = card.querySelector(".featured-img");
+                var title = card.querySelector(".title");
+                var a = card.querySelector(".stretched-link");
+                // var date = card.querySelector(".featured-date");
+                a.href = post.url;
+                image.alt = post.title;
+                image.src = post.feature_image;
+                title.textContent = post.title;
+                // date.textContent = post.published_at;
+                var cardContainer = document.getElementById("recent-blog-posts"); // place on the page where we want to append our template
+                cardContainer.appendChild(card); // append the template’s copy to the page
+            });
+        })
+        .catch((err) => {
+            console.error(err);
+        });
 </script>
 <script type="text/javascript" src="{{site.url}}/js/bundle.js" charset="utf-8" />
 

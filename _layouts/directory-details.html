@@ -9,11 +9,11 @@ layout: default
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const id = localStorage.getItem("id");
-    const root_url = `https://stage.usehover.com/api/channel_actions?channel_id=${id}`;
+    const rootUrl = `https://stage.usehover.com/api/channel_actions?channel_id=${id}`;
     const div = document.getElementById("card-details");
     const header = document.getElementById("header");
 
-    fetch(root_url)
+    fetch(rootUrl)
         .then(response => response.json())
         .then(data => {
             console.log(data);

@@ -1,13 +1,14 @@
 ---
-layout: default
+layout: default1
 ---
+{% include shell/header.html %}
 
 <section class="wrapper-y will-grow half-way-bottom bg-lightblue">
   <h1 class="tx-c h1 my-0 m-2">
     {{ page.title }}
   </h1>
 </section>
-<ul class="max-810 mx-auto wrapper-y half-way mt-3" uk-accordion>
+<ul class="max-810 mx-auto wrapper-y half-way mt-3" uk_accordion>
   {% for item in site.faqs %}
   <li class="">
     <button class="accordion ff-bold">
