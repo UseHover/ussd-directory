@@ -1,6 +1,6 @@
 // // Sections
 
-.uk-accordion
+.uk_accordion
     margin-top: 5rem
 
     @media #{$mediumup}
@@ -9,7 +9,7 @@
     li
         margin-top: 0 !important
 
-.uk-accordion-title, .uk-accordion-content
+.accordion, .panel
     padding: 1.6rem 2.7rem
     border: 1px solid $offwhite
     border-radius: 8px
@@ -20,14 +20,21 @@
     background-color: $white
     display: block
 
+.accordion
+    width: 100%
+    margin: 0 2px 2px 0
+    text-align: left
+    position: relative
     &::before
-        background-image: url("/uploads/chevron-down.svg")
+        content: ""
+        background: url("/uploads/chevron-down.svg")
+        position: absolute
+        right: 2.7rem
+        width: 28px
+        height: 24px
+        top: 1.6rem
 
-.uk-open > .uk-accordion-title
-    &::before
-        background-image: url("/uploads/chevron-down.svg")
-
-.uk-accordion-content
+.panel
     padding-bottom: 1rem
     font-size: $nanofont
     color: $gray !important
@@ -100,7 +107,6 @@
             background-color: $white
             text-transform: capitalize !important
             font-size: $nanofont !important
-            // font-family: $mediafont
             margin-bottom: 1rem
             font-family: $regularfont
             color: $gray
@@ -112,6 +118,18 @@
 
         li
             padding-left: 0
+
+.sub-filter
+    p
+        display: flex
+        justify-content: center
+
+    &.on-active
+        p
+            border: 1px solid $blue
+            background-color: $white
+            color: $blue
+            font-family: $semiboldfont
 
 .code-head
     padding: 3rem 0
@@ -160,11 +178,15 @@
         position: absolute
         right: 15.1%
 
-
 .code-container
     position: relative
     display: flex
     align-items: center
     justify-content: center
+
     #loader
         margin: auto
+
+.featured-img
+    object-fit: fill 
+    height: 272px

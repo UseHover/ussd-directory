@@ -46,6 +46,9 @@
     &:active, &:focus, &:hover
         background-color: $white
 
+    &::placeholder
+        padding-left: -50px
+
 .home-banner
     background-image: url("/uploads/main-bg.png")
     background-repeat: no-repeat
@@ -56,7 +59,6 @@
 
     @media #{$largeup}
         height: 644px
-        // background-size: 113%
 
     article
         display: flex
@@ -86,7 +88,6 @@
     background-color: $white
     border-radius: 8px
     box-shadow: 4px 10px 20px rgba(170, 170, 170, 0.16)
-    border: $borderline
     margin-top: 6rem
     max-height: 342px
     overflow-y: scroll
@@ -96,12 +97,6 @@
     z-index: 1
     left: 0
     top: 85px !important
-
-    li
-        &:first-of-type
-            position: sticky
-            top: 0
-            background-color: $white
 
 .gridstyle
     display: grid
@@ -119,6 +114,7 @@
         padding: 2.4rem
         height: 86px
         cursor: pointer
+        position: relative
 
         @media #{$mediumup}
             display: block
@@ -128,15 +124,6 @@
             padding: 1.6rem 2.4rem
             height: 170px
             margin: 0 auto 2rem auto
-
-            .copy
-                position: absolute
-                color: $blue
-                display: flex
-                align-item: center
-                right: 0
-                bottom: 0
-                margin: 1.6rem 2.1rem
 
 .liststyle
     li
@@ -149,6 +136,7 @@
         margin-bottom: 2px
         padding: 2.4rem
         cursor: pointer
+        position: relative
 
         @media #{$mediumup}
             height: 86px
@@ -163,6 +151,14 @@
 
             .mr-2-0
                 margin-right: 2rem
+
+.copy
+    position: absolute
+    color: $blue
+    align-item: center
+    right: 0
+    bottom: 0
+    margin: 1.6rem 2.1rem
 
 .content
     max-width: 895px
