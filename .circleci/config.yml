@@ -41,6 +41,7 @@ jobs:
           root: ./
           paths:
             - _site
+
   deploy-staging:
     docker:
       - image: cimg/python:3.9.1
@@ -56,21 +57,49 @@ jobs:
       - run:
           name: Create AWS Cloudfront Invalidation
           command: ~/.local/bin/aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_STAGE_DISTRIBUTION_ID --paths "/*"
+
   deploy-production:
     docker:
-      - image: cimg/python:3.9.1
+      - image: cimg/ruby:2.7.4-node
+    environment:
+      BUNDLE_PATH: ~/repo/vendor/bundle
     steps:
-      - attach_workspace:
-          at: ./
+      - checkout
+      - restore_cache:
+          keys:
+            - rubygems-v1-{{ checksum "Gemfile.lock" }}
+            - rubygems-v1-fallback
       - run:
-          name: Install AWS CLI
-          command: pip install awscli --upgrade --user
+          name: Bundle Install
+          command: bundle check || bundle install
+      - save_cache:
+          key: rubygems-v1-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: Install node dependencies
+          command: yarn
+      - run:
+          name: Install aws cli
+          command: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip && ./aws/install -i ~/.local/aws-cli -b ~/.local/bin/
+            aws --version
+      - run:
+          name: Copy environment variables
+          command: aws s3 cp s3://ussd.directory.env/prod/.env .
+      - run:
+          name: Build react scripts
+          command: yarn build
+      - run:
+          name: Jekyll build
+          command: bundle exec jekyll build
       - run:
           name: Upload to s3
-          command: ~/.local/bin/aws s3 sync ./_site s3://$AWS_S3_PROD_BUCKET_NAME/ --delete --acl public-read --delete --cache-control max-age=604800
+          command: aws s3 sync _site s3://$AWS_S3_PROD_BUCKET_NAME/ --delete --acl public-read --delete --cache-control max-age=604800
       - run:
           name: Create AWS Cloudfront Invalidation
-          command: ~/.local/bin/aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID --paths "/*"
+          command: aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID --paths "/*"
 workflows:
   test-deploy:
     jobs:
@@ -83,10 +112,7 @@ workflows:
               only: staging
   test-deploy-prod:
     jobs:
-      - build
       - deploy-production:
-          requires:
-            - build
           filters:
             branches:
               only: main
