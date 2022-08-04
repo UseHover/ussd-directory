@@ -1,8 +1,8 @@
 main-nav:
 - name: Directory
-  link: /directory
+  link: /directory/
 - name: FAQs
-  link: /faqs  
+  link: /faqs/
 - name: Blog
   link: https://blog.ussd.directory/
 
