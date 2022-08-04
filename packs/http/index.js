@@ -8,6 +8,7 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(config => {
   config.headers.Accept = 'application/json'
   config.headers['Content-Type'] = 'application/json'
+  config.headers['Access-Control-Allow-Origin'] = '*'
   return config
 })
 
