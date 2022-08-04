@@ -64,3 +64,4 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - .gitignore
+  - aws
