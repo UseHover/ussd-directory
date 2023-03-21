@@ -11,6 +11,8 @@ const paginationState = {
 }
 
 const ChannelList = ({ channels, country }) => {
+  const currentPath = window.location.pathname
+  const [searchParam, setSearchParam] = useState("")
   const [displayStyle, setDisplayStyle] = useState('gridstyle')
   const [pagination, setPagination] = useState(paginationState)
   const [channelList, setChannelList] = useState({})
@@ -28,22 +30,20 @@ const ChannelList = ({ channels, country }) => {
   }
 
   const onViewMore = async () => {
-    const currentPath = window.location.pathname
-
     if (currentPath === '/') {
       window.location.replace('/directory/')
       return
     }
 
     const nextPage = pagination.page + 1
-    let queryParams = `page=${nextPage}`
+    let queryParams = `page=${nextPage}&query=${searchParam}`
 
     if (country.alpha2) {
       queryParams = `${queryParams}&country=${country.alpha2}`
     }
 
     setPagination({ ...pagination, ...{ fetching: true } })
-    const response = await getChannels(queryParams, pagination.perPage, nextPage)
+    const response = await getChannels(queryParams, pagination.perPage)
 
     setChannelList({ ...channelList, ...{ data: [...channelList.data, ...response.data.data] } })
     setPagination({ ...pagination, ...{ page: nextPage, fetching: false } })
@@ -55,14 +55,13 @@ const ChannelList = ({ channels, country }) => {
     )
   }
 
-  const onInputSearch = event => {
+  const onInputSearch = async (event) => {
     const query = event.currentTarget.value.toLowerCase()
-    const results = [...channels.data].filter(channel => {
-      const stringData = Object.values(channel.attributes).join(' ').toLowerCase()
-      return stringData.indexOf(query) !== -1
-    })
+    const queryParams = `query=${query}${country.alpha2 ? '&country=' + country.alpha2 : ''}`
+    setSearchParam(query)
 
-    setChannelList({ ...channelList, ...{ data: results } })
+    const response = await getChannels(queryParams)
+    setChannelList({ ...channelList, ...{ data: [...channelList.data, ...response.data.data] } })
   }
 
   const onClickInstitutionType = typeKey => {
