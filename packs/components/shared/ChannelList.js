@@ -15,7 +15,7 @@ const ChannelList = ({ channels, country }) => {
   const [searchParam, setSearchParam] = useState("")
   const [displayStyle, setDisplayStyle] = useState('gridstyle')
   const [pagination, setPagination] = useState(paginationState)
-  const [channelList, setChannelList] = useState({})
+  const [channelList, setChannelList] = useState(channels)
   const [institutionType, setInstitutionType] = useState(constants.INSTITUTION_TYPES.all)
 
   const onChangeListDisplay = event => {
@@ -74,8 +74,6 @@ const ChannelList = ({ channels, country }) => {
 
     setInstitutionType(constants.INSTITUTION_TYPES[typeKey])
   }
-
-  useEffect(() => setChannelList(channels), [channels])
 
   return (
     <>
