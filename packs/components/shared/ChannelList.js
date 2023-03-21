@@ -61,7 +61,7 @@ const ChannelList = ({ channels, country }) => {
     setSearchParam(query)
 
     const response = await getChannels(queryParams)
-    setChannelList({ ...channelList, ...{ data: response.data.data } })
+    setChannelList({ ...channelList, data: response.data.data } )
   }
 
   const onClickInstitutionType = typeKey => {
