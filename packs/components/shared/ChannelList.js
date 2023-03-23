@@ -75,7 +75,7 @@ const ChannelList = ({ channels, country }) => {
     setInstitutionType(constants.INSTITUTION_TYPES[typeKey])
   }
 
-  useEffect(() => setChannelList(channels), [])
+  useEffect(() => setChannelList(channels), [channelList])
 
   return (
     <>
