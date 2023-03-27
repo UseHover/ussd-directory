@@ -1,2 +1,2 @@
-web: jekyll serve
+web: jekyll serve --incremental
 watcher: yarn watch
